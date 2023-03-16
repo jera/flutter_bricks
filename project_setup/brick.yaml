@@ -1,0 +1,14 @@
+name: project_setup
+description: A brick for create project flutter setup.
+repository: https://github.com/jaumpelicon/my-mason-bricks/tree/master/project_setup
+
+version: 0.1.0+2
+
+environment:
+  mason: ">=0.1.0-dev.47 <0.1.0"
+
+vars:
+  project_name:
+    type: string
+    description: Project Name
+    prompt: What is your project name?

@@ -1,0 +1,4 @@
+analyzer:
+  exclude:
+    - create_feature/**
+    - project_setup

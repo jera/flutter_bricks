@@ -70,3 +70,20 @@ Caso queira especificar em qual pasta deva gerar sua brick basta passar o atribu
 ```
 mason make brick_name -o lib/features/
 ```
+
+## Criando // dando manutenção em uma brick:
+
+Quando você cria e da manutenção nas bricks a tendencia é aparecer muitos erros de código devido ao analyzer do VS code para evitar isso adicionamos um arquivo chamado `analysis_options.yaml` com a seguinte configuração:
+
+```
+analyzer:
+  exclude:
+    - create_feature/**
+    - project_setup
+```
+
+## Publicando uma brick ou atualizando bricks existentes:
+
+O acesso a conta do brickhub é o mesmo do gmail do mobile@jera.com que está na nossa [wiki](https://sites.google.com/a/jera.com.br/intranet/contas-e-servi%C3%A7os)
+
+// TODO depois do dojo
