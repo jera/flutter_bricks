@@ -78,8 +78,8 @@ Quando você cria e da manutenção nas bricks a tendencia é aparecer muitos er
 ```
 analyzer:
   exclude:
-    - create_feature/**
-    - project_setup
+    - brick_name1
+    - brick_name2
 ```
 
 ## Publicando uma brick ou atualizando bricks existentes:
