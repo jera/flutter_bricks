@@ -85,3 +85,15 @@ Esse módulo de Force update é uma base para a sua funcionalidade para otimizar
 
 - `force_update_view_model.dart`
 - `get_minimum_version_use_case.dart`
+
+## Como usar?
+
+Após resolver todos os TODOs e adicionar todos os códigos que precisa é só você chamar o seguinte comando:
+
+```dart
+ForceUpdate.instance.verifyVersion();
+```
+
+**Recomendado rodar esse comando no `initState` da `splash_screen`, mas podendo ser executado de acordo com o seu contexto.**
+
+*Lembre-se de se certificar que a API de seu projeto tenha a rota e ela esteja funcionando.*
