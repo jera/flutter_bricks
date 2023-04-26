@@ -5,7 +5,7 @@ Brick para funcionalidade de **Force Update** que é verificar se o aplicativo q
 O módulo vem com um layout pré estabelecido e bem simples que vai nortear o seu desenvolvimento.
 
 <div style="text-align: center"> 
-	<img src="images/layout_example.png">
+	<img src="images/layout_example.png" height="250">
 </div>
 
 ## Dependências do módulo
