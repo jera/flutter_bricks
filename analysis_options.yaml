@@ -2,3 +2,4 @@ analyzer:
   exclude:
     - create_feature/**
     - project_setup
+    - jera_force_update/**
