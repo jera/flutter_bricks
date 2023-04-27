@@ -1,6 +1,6 @@
 name: create_feature
 description: A brick for create features.
-repository: https://github.com/jaumpelicon/my-mason-bricks/tree/master/create_feature
+repository: https://github.com/jera/flutter_bricks/tree/feature/force_update/jera_create_feature
 
 version: 0.2.2+2
 
