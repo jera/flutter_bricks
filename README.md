@@ -84,6 +84,14 @@ analyzer:
 
 ## Publicando uma brick ou atualizando bricks existentes:
 
-O acesso a conta do brickhub é o mesmo do gmail do mobile@jera.com que está na nossa [wiki](https://sites.google.com/a/jera.com.br/intranet/contas-e-servi%C3%A7os)
+O acesso a conta do brickhub é o que está na nosso repositório privado do mobile na seção de acessos da Jera.
 
-// TODO depois do dojo
+Para publicar uma brick você deve fazer o login com o comando
+```bash
+$ mason login
+```
+após isso o mason ira pedir as crendenciais e após logado basta rodar um:
+
+```bash
+$ mason publish --directory /diretorio_da_brick
+```
