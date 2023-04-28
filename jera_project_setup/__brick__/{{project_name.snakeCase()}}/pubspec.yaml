@@ -1,4 +1,4 @@
-name: FlutterProject
+name: {{{project_name.pascalCase()}}}
 description: A new Flutter project.
 publish_to: "none"
 

@@ -27,6 +27,8 @@ $ mason make jera_create_feature -o lib/features
 ```
 Note que o que vem depois do -o é o path no qual você gostaria de adicionar essa funcionalidade.
 
+Após isso seu terminal fará duas perguntas, uma para você definir o nome da sua feature, e outra se deve gerar ou não sua factory você deve digitar `s` para gerar e `n` para não gerar.
+
 
 ## Dependencias do modulo
 

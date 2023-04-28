@@ -1,0 +1,4 @@
+{
+  "@@locale": "pt",
+  "appTitle": "{{{project_name.pascalCase()}}}"
+ }
