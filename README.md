@@ -84,7 +84,7 @@ analyzer:
 
 ## Publicando uma brick ou atualizando bricks existentes:
 
-O acesso a conta do brickhub é o mesmo do gmail do mobile@jera.com.br que está na nosso repositório privado de acessos da Jera.
+O acesso a conta do brickhub é o que está na nosso repositório privado do mobile na seção de acessos da Jera.
 
 Para publicar uma brick você deve fazer o login com o comando
 ```bash
