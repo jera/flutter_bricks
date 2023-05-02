@@ -10,7 +10,7 @@ O módulo vem com um layout pré estabelecido e bem simples que vai nortear o se
 
 ## Dependências do módulo
 
-O modulo não funciona por si só ele precisa de algumas configurações e arquivos que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
+O modulo não funciona por si só, ele precisa de algumas configurações e arquivos que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
 
 - `APIProvider.dart`
 - `Endpoint.dart`
