@@ -1,5 +1,6 @@
 name: jera_force_update
-description: A new brick created with the Mason CLI.
+description: A brick for help develop feature force update.
+repository: https://github.com/jera/flutter_bricks/tree/develop/jera_force_update
 
 version: 0.1.0+1
 
