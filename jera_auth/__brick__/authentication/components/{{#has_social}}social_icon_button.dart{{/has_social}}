@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class SocialIconButton extends StatelessWidget {
+  final Widget asset;
+  final String label;
+  final VoidCallback? onTap;
+  const SocialIconButton({super.key, required this.asset, required this.label, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 40,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            asset,
+            const SizedBox(width: 20),
+            Text(label, style: const TextStyle(color: Colors.black)),
+          ],
+        ),
+      ),
+    );
+  }
+}

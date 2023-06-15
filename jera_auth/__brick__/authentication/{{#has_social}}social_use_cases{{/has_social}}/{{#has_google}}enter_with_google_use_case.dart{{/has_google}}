@@ -1,0 +1,34 @@
+import '../domain/user_routes.dart';
+import '../models/google_login_request.dart';
+import '../models/user.dart';
+
+typedef Success = void Function(User user);
+typedef Failure = void Function(String error);
+
+abstract class EnterWithGoogleUseCaseProtocol {
+  void execute({required GoogleLoginRequest googleLoginRequest, Success? success, Failure? failure});
+}
+
+class EnterWithGoogleUseCase implements EnterWithGoogleUseCaseProtocol {
+  final UserRoutesProtocol routes;
+
+  EnterWithGoogleUseCase({required this.routes});
+
+  @override
+  void execute({required GoogleLoginRequest googleLoginRequest, Success? success, Failure? failure}) {
+    routes.enterWithGoogle(
+      googleRequest: googleLoginRequest,
+      success: (response) {
+        try {
+          final user = User.fromMap(response);
+          success?.call(user);
+        } on Error catch (error) {
+          failure?.call(error.toString());
+        }
+      },
+      failure: (error) {
+        failure?.call(error.toString());
+      },
+    );
+  }
+}
