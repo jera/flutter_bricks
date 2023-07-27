@@ -1,7 +1,6 @@
-import 'package:Auth/features/authentication/models/user_request.dart';
-
 import '../../domain/user_routes.dart';
 import '../../models/user.dart';
+import '../../models/user_request.dart';
 
 typedef Success = void Function(User user);
 typedef Failure = void Function(String error);
