@@ -1,42 +1,25 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mixpanel_flutter/mixpanel_flutter.dart';
 
-import '../authentication_session/session_manager.dart';
-
-abstract class AppEventManagerProtocol {
+abstract class MixPanelEventsHelperProtocol {
+  void setupUser();
+  Future<void> initMixpanel();
   void triggerEvent({
     required String eventName,
     Map<String, dynamic>? properties,
   });
 }
 
-abstract class MixPanelEventsProtocol extends AppEventManagerProtocol {
-  void setupUser();
-  Future<void> initMixpanel();
-}
-
-class FirebaseEvents extends AppEventManagerProtocol {
-  static final AppEventManagerProtocol instance = FirebaseEvents._();
-  final _firebaseAnalytics = FirebaseAnalytics.instance;
-
-  FirebaseEvents._();
-
-  @override
-  Future<void> triggerEvent({required String eventName, Map<String, dynamic>? properties}) async {
-    await _firebaseAnalytics.logEvent(name: eventName, parameters: properties);
-  }
-}
-
-class MixpanelEvents extends MixPanelEventsProtocol {
+class MixpanelEventsHelper extends MixPanelEventsHelperProtocol {
   Mixpanel? _mixPanel;
-  final SessionManagerProtocol _sessionManager = SessionManager.instance;
-  static final MixPanelEventsProtocol instance = MixpanelEvents._();
+  //TODO Adicionar sessionManager para fazer o setup do user;
+  // final SessionManagerProtocol _sessionManager = SessionManager.instance;
+  static final MixPanelEventsHelperProtocol instance = MixpanelEventsHelper._();
 
-  MixpanelEvents._();
+  MixpanelEventsHelper._();
 
   @override
   Future<void> initMixpanel() async {
@@ -60,7 +43,7 @@ class MixpanelEvents extends MixPanelEventsProtocol {
   Future<void> setupUser() async {
     if (_cantTriggerEvent) return;
 
-    final user = _sessionManager.user;
+    const user = null; // _sessionManager.user;
 
     final anonymousUserId = await _appPlatformTokenId;
     _mixPanel?.identify(user?.id ?? anonymousUserId);
@@ -89,7 +72,7 @@ class MixpanelEvents extends MixPanelEventsProtocol {
   static const String anonymousUserId = 'anonymous-user';
   static const String anonymousUserName = 'Usuário anônimo';
   static const String anonymousUserEmail = 'anonymous@email.com';
-  static const String propertyName = 'name';
-  static const String propertyEmail = '\$email';
+  static const String propertyName = 'user_name';
+  static const String propertyEmail = 'user_email';
   static const String mixPanelToken = 'suaChaveDoMixPanel';
 }

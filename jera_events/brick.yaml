@@ -2,7 +2,7 @@ name: jera_events
 description: Brick for generate class for trigger events into mixPanel and firebase helper.
 repository: https://github.com/jera/flutter_bricks/tree/develop/jera_events
 
-version: 0.1.0+1
+version: 0.1.0+2
 
 environment:
   mason: ">=0.1.0-dev.47 <0.1.0"
