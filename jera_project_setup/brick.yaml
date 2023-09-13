@@ -12,3 +12,7 @@ vars:
     type: string
     description: Project Name
     prompt: Qual o nome do projeto que você deseja gerar?
+  has_force_update:
+    type: boolean
+    description: if true generate di
+    prompt: Deseja adicionar force update?
