@@ -5,3 +5,4 @@ analyzer:
     - jera_force_update/**
     - jera_auth/**
     - jera_events/**
+    - jera_push/**
