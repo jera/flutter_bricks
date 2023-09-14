@@ -16,6 +16,6 @@ class NotificationInfo {
   NotificationInfo.fromFirebaseMessage({required RemoteMessage message})
       : title = message.notification?.title ?? '',
         subtitle = message.notification?.body ?? '',
-        channelId = 'firebase-notify-channel',
+        channelId = '{{project_name.snakeCase()}}',
         channelName = 'notify-news';
 }
