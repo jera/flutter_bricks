@@ -6,3 +6,4 @@ analyzer:
     - jera_auth/**
     - jera_events/**
     - jera_push/**
+    - jera_session_manager/**
