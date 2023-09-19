@@ -1,8 +1,8 @@
 name: jera_session_manager
 description: A new brick for create implementation for the session manager
-repository: https://github.com/jera/flutter_bricks/tree/develop/jera_session_manager
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_session_manager
 
-version: 0.1.0+1
+version: 0.1.0+2
 
 environment:
   mason: ">=0.1.0-dev.50 <0.1.0"

@@ -1,8 +1,8 @@
 name: jera_push
 description: A new brick for generate firebase push notification implementation.
-repository: https://github.com/jera/flutter_bricks/tree/develop/jera_push
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_push
 
-version: 0.1.0+2
+version: 0.1.0+3
 
 environment:
   mason: ">=0.1.0-dev.50 <0.1.0"

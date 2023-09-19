@@ -9,4 +9,5 @@ void run(HookContext context) async {
   await Process.run('flutter', ['pub', 'add', 'firebase_messaging'], runInShell: true);
 
   progress.complete();
+  context.logger.info('Brick JERAda com sucesso!');
 }

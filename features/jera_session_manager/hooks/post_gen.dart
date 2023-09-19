@@ -8,4 +8,6 @@ void run(HookContext context) async {
   await Process.run('flutter', ['pub', 'add', 'flutter_secure_storage'], runInShell: true);
 
   progress.complete();
+
+  context.logger.info('Brick JERAda com sucesso!');
 }

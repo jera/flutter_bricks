@@ -11,4 +11,5 @@ void run(HookContext context) async {
   final progressMixPanel = context.logger.progress('Adicionando o mixpanel_flutter');
   await Process.run('flutter', ['pub', 'add', 'mixpanel_flutter'], runInShell: true);
   progressMixPanel.complete();
+  context.logger.info('Brick JERAda com sucesso!');
 }
