@@ -1,0 +1,8 @@
+name: jera_remote_config
+description: A new brick for generate feature remote config provider.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_remote_config
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
