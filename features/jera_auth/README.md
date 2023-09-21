@@ -8,16 +8,14 @@ Para quando você aceita os condicionais de integração com rede social dessa f
 <img src="assets/with_social_example.png" />
 Será gerado o seguinte template de layout para o cadastro e login:
 
-<img src="assets/login_social_example.png" height="550"/>
-<img src="assets/register_social_example.png" height="550"/>
+<img src="assets/login_social_example.png" height="550"/> <img src="assets/register_social_example.png" height="550"/>
 
 Ja para a opção de gerar sem a integação de redes sociais:
 
 <img src="assets/without_social_example.png" />
 
 Temos o seguinte design: <br>
-<img src="assets/login_example.png" height="550"/>
-<img src="assets/register_example.png" height="550"/>
+<img src="assets/login_example.png" height="550"/> <img src="assets/register_example.png" height="550"/>
 
 Reforço que todos os botões de login com rede social e seus respectivos use_cases e routes são opcionais e caso queira apenas 1 das integrações todo o código e import de bibliotecas não será adicionado ao módulo e o layout será modificado com apenas 1 dos botões da rede social.
 
