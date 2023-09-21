@@ -1,7 +1,7 @@
 name: jera_auth
 description: Brick for create authentication with code for social login and register.
 repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_auth
-version: 0.1.0+2
+version: 0.1.0+3
 
 environment:
   mason: ">=0.1.0-dev.48 <0.1.0"
@@ -23,4 +23,3 @@ vars:
     type: boolean
     description: Decide se irá ter integração com a apple ou não.
     prompt: Terá integração cadastro/login com apple?
-

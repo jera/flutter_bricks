@@ -6,7 +6,7 @@ O módulo gera os dois aquivos que atualmente utilizamos para fazer a implementa
 
 ## Como instalar e gerar os arquivos
 
-Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_push.
+Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_remote_config.
 
 ```bash
 $ mason add jera_remote_config
