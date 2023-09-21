@@ -34,7 +34,7 @@ remoteConfig.initialize();
 
 Também é importante notar que as informações buscadas dependem das informações cadastradas no remote config no painel do firebase, e são segmentadas por `produção` e `staging` de acordo com o prefixo da key sendo eles respectivamente `mobile` e `staging` portanto todos os valores a serem adicionados no remote config deve seguir esse padrão de key para o funcionamento adequado da aplicação, segue um exemplo:
 
-  <img src="../assets/remote_config_example.png" /> 
+  <img src="assets/remote_config_example.png" /> 
 <br>
 
 ## A sua parte na brick
