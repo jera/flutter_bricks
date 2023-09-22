@@ -1,3 +1,3 @@
-# 0.0.1+1
+# 0.0.1+2
 
-- Into first version generate files and protocols, with factory and navigate route.
+- Into first version generate item view and item view model, with opcional delegate.
