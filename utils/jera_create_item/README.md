@@ -1,4 +1,4 @@
-# Feature Brick
+# Create Item Brick
 
 ## Brick para criar a estrutura básica de um item no seu projeto, com os arquivos criados no padrão que utilizamos hoje na Jera.
 
