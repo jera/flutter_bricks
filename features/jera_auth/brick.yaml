@@ -1,0 +1,25 @@
+name: jera_auth
+description: Brick for create authentication with code for social login and register.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_auth
+version: 0.1.0+3
+
+environment:
+  mason: ">=0.1.0-dev.48 <0.1.0"
+
+vars:
+  has_social:
+    type: boolean
+    description: Decide se irá ter rede social ou não.
+    prompt: Terá integração com rede social?
+  has_google:
+    type: boolean
+    description: Decide se irá ter integração com o goole ou não.
+    prompt: Terá integração cadastro/login com google?
+  has_facebook:
+    type: boolean
+    description: Decide se irá ter integração com o facebook ou não.
+    prompt: Terá integração cadastro/login com facebook?
+  has_apple:
+    type: boolean
+    description: Decide se irá ter integração com a apple ou não.
+    prompt: Terá integração cadastro/login com apple?

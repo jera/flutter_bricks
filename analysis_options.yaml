@@ -1,7 +1,4 @@
 analyzer:
   exclude:
-    - jera_create_feature/**
-    - jera_project_setup/**
-    - jera_force_update/**
-    - jera_auth/**
-    - jera_events/**
+    - features/**
+    - utils/**

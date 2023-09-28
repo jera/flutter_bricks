@@ -1,0 +1,18 @@
+name: jera_create_item
+description: A brick to create items.
+repository: https://github.com/jera/flutter_bricks/tree/develop/utils/jera_create_item
+
+version: 0.0.1+2
+
+environment:
+  mason: ">=0.1.0-dev.47 <0.1.0"
+
+vars:
+  name:
+    type: string
+    description: Feature name generate
+    prompt: Qual o nome do seu item?
+  has_delegate:
+    type: boolean
+    description: if true generate delegate
+    prompt: Deseja criar um delegate no seu item?
