@@ -1,34 +1,59 @@
 # Project Setup Brick
-Brick para acelerar o processo de **setup**  da stack flutter na Jera.
+Esta brick deve ser utilizada para acelerar o processo de setup de um projeto ou módulo Flutter.
 
-O módulo vem com o setup de api, o localize, e mobile_router configurado e também as classes de estilo do appThemes e appColors criada e estanciada e também vem uma tela inicial para poder prosseguir com o desenvolvimento.
+Contém as seguintes configurações:
+ - Localize
+ - Lints
+ - Force update
+ - Service locator
+ - Git ignore
+ - Mobile router
+ - Merge request template
+ - Classes de estilo como o AppColors e o AppThemes
+ - Uma tela inicial de exemplo
 
-<div style="text-align: center"> 
-	<img src="images/layout_example.png" height="550">
-</div>
+## Como usar esta brick?
 
-## Dependências do módulo
-
-O modulo de setup ja deixa o projeto funcional para seu primeiro run e configurações iniciais, porém ao gerar a brick de setup é necessário ao abrir seu projeto rodar o comando:
-
+1. Desative as opções web, mac, windows e linux caso o projeto seja apenas mobile usando:
 ```bash
-$ flutter pub get
+$ flutter config --no-enable-web
+$ flutter config --no-enable-linux-desktop
+$ flutter config --no-enable-macos-desktop
+$ flutter config --no-enable-windows-desktop
 ```
 
-para instalar as dependências necessárias e gerar seu arquivo de localize.
+2. Crie seu projeto usando o seguinte comando:
+```bash
+$ flutter create -org br.com.jera nomedoprojeto
+```
 
-## Como instalar e gerar os arquivos
-
-Para utilizar da brick adicione ela ao seu `mason.yaml` com o nome `jera_force_update`.
-
+3. Instale a dependência desta brick usando este comando:
 ```bash
 $ mason add jera_project_setup
 ```
 
-Logo após adicionar rode o comando para gerar os arquivos dentro de seu projeto:
-
+4. Adicione a brick de setup com o seguinte comando dentro do seu projeto:
 ```bash
-$ mason make jera_project_setup -o ${diretorio_dos_seus_projetos}
+$ mason make jera_project_setup
 ```
 
-***Note que o que vem depois do `-o` é o path no qual você gostaria de adicionar o projeto novo.***
+Está quase pronto, mas para conseguir rodar seu projeto no Android você precisa alterar as versões de suporte do app no gradle, para isso siga os seguintes passos:
+
+1. Abra o arquivo `build.gradle` dentro da pasta `android/app`
+
+2. Vá até `defaultConfig` e troque o valor dos campos `minSdkVersion` para 23 e do `targetSdkVersion` para 33, dessa forma:
+```
+    defaultConfig {
+        applicationId "br.com.jera.mason"
+        minSdkVersion 23
+        targetSdkVersion 33
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+    }
+```    
+
+## O que falta para concluir o setup?
+
+- Será necessário alterar as versões de suporte do iOS, para isso pesquise por `IPHONEOS_DEPLOYMENT_TARGET` dentro de `project.pbxproj` e altere o valor para a versão atual que damos suporte (14). Faça isso nos 3 lugares onde o `IPHONEOS_DEPLOYMENT_TARGET` for chamado
+- Configurar o Fastlane no iOS
+- Alterar o nome e a logo do app

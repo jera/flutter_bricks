@@ -7,7 +7,7 @@ import 'support/styles/app_themes.dart';
 import 'support/utils/service_locator/service_locator.dart';
 
 void main() {
-  initializeDependencies()
+  initializeDependencies();
   runApp(const MyApp());
 }
 
