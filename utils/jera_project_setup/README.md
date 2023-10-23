@@ -7,7 +7,7 @@ Contém as seguintes configurações:
  - Force update
  - Service locator
  - Git ignore
- - Mobile router
+ - Mobile router (opcional com ou sem go_router)
  - Merge request template
  - Classes de estilo como o AppColors e o AppThemes
  - Uma tela inicial de exemplo
