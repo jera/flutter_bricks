@@ -60,6 +60,7 @@ $ mason make jera_project_setup
 
 ## O que falta para concluir o setup?
 
+- No `pubspec.yaml` altere o `name` com o nome do seu projeto
 - Será necessário alterar as versões de suporte do iOS, para isso pesquise por `IPHONEOS_DEPLOYMENT_TARGET` dentro de `project.pbxproj` e altere o valor para a versão atual que damos suporte (14). Faça isso nos 3 lugares onde o `IPHONEOS_DEPLOYMENT_TARGET` for chamado
 - Configurar o Fastlane no iOS
 - Alterar o nome e a logo do app
