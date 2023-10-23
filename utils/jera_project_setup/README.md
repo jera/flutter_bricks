@@ -37,7 +37,13 @@ $ mason add jera_project_setup
 $ mason make jera_project_setup
 ```
 
-Está quase pronto, mas para conseguir rodar seu projeto no Android você precisa alterar as versões de suporte do app no gradle, para isso siga os seguintes passos:
+5. Alguns arquivos terão conflitos ao gerar a brick, aceite sobrescreve-los utilizando o `y (yes)` para substituir pelo arquivo gerado pela brick
+<div style="text-align: left"> 
+	<img src="images/brick_conflicts_example.jpeg" height="200">
+</div>
+
+
+- Está quase pronto, mas para conseguir rodar seu projeto no Android você precisa alterar as versões de suporte do app no gradle, para isso siga os seguintes passos:
 
 1. Abra o arquivo `build.gradle` dentro da pasta `android/app`
 
