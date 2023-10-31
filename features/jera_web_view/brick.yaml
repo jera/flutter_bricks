@@ -1,0 +1,8 @@
+name: jera_web_view
+description: A brick to create a web view
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_web_view
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.50 <0.1.0"
