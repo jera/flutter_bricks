@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 abstract class WebViewComponentViewModelProtocol with ChangeNotifier {
-  bool get hasAppBarWidget; 
   bool get isWebViewLoading;
   WebViewController get webViewController;
 }
@@ -28,8 +27,8 @@ class WebViewComponentView extends StatelessWidget {
   }
 
   Widget _getWebViewWidget(BuildContext context, Widget? child) {
-    //TODO implemente seu loading
-    if (viewModel.isWebViewLoading) return const LoadingPlaceholder();
+    //TODO implemente seu widget de loading
+    if (viewModel.isWebViewLoading) return Container();
     return WebViewWidget(controller: viewModel.webViewController);
   }
 }

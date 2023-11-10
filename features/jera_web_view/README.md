@@ -1,35 +1,26 @@
 # Create Item Brick
 
-## Brick para criar a estrutura básica de um item no seu projeto, com os arquivos criados no padrão que utilizamos hoje na Jera.
+## Brick para criar um componente web view no seu projeto, com os arquivos criados no padrão que utilizamos hoje na Jera.
 
-O módulo vem com o item_view e item_view_model criado com o nome de sua preferência, também existe a possibilidade opcional de gerar ou não um delegate no seu item_view_model. <br>
-
-## A estrutura das pastas e arquivos gerados é essa:
-
-  - {name_feature}
-    - {name_feature}\_item_view_model.dart
-    - {name_feature}\_item_view.dart
+O módulo vem com uma pasta chamada web_view_component, onde você pode passar uma url para ser exibida na web view.<br>
 
 ## Como instalar e gerar os arquivos
 
-Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_create_item.
+Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_web_view.
 
 ```bash
-$ mason add jera_create_item
+$ mason add jera_web_view
 ```
 
 Logo após adicionar rode o comando para gerar os arquivos dentro de seu projeto:
 ```bash
-$ mason make jera_create_item -o lib/features/{caminho da sua pasta}
+$ mason make jera_web_view -o lib/features
 ```
-Note que o que vem depois do -o é o path no qual você gostaria de adicionar esse item.
-
-Após isso seu terminal fará duas perguntas, uma para você definir o nome do seu item, e outra se deve gerar ou não um delegate, você deve digitar `s` para gerar e `n` para não gerar.
-
+Note que o que vem depois do -o é o path no qual você gostaria de adicionar a pasta com a web view.
 
 ## Dependências do módulo
 
-Ao criar seu item não haverá nenhum layout predefinido, apenas será gerado o necessário para começar um novo item.
+Ao criar os arquivos não haverá um widget de loading definido no web_view_component_view.dart para lidar com o carregamento da web view, você terá que passar um de sua preferência. Também pode acontecer de existirem imports incorretos no arquivo web_view_component_module.dart, pois o import pode variar de acordo com o nome do arquivo service locator usado em seu projeto.
 
 ## A sua parte na brick
-Esse módulo de Create Item é uma base para o seu novo item, com o objetivo de otimizar seu tempo criando e nomeando arquivos. Porém é necessário que você de fato complemente criando a lista responsável por exibir este item.
+Esse módulo de web view é uma base para adicionar uma web view em seu projeto, com o objetivo de otimizar seu tempo, porém pode ser que você tenha que implementar ajustes para fazer com que a web view funcione corretamente no contexto do seu projeto, por exemplo implementando a permissão de data tracking, caso a url utilizada na web view precise dessa permissão.
