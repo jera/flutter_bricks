@@ -1,4 +1,4 @@
-# Create Item Brick
+# Create Web View Brick
 
 ## Brick para criar um componente web view no seu projeto, com os arquivos criados no padrão que utilizamos hoje na Jera.
 
