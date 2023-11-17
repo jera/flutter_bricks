@@ -4,7 +4,7 @@ import '../../support/utils/service_locator/service_locator_provider.dart';
 import 'web_view_component_view.dart';
 
 abstract class WebViewComponentProtocol extends WebViewComponentViewModelProtocol {
-  void prepareWebView();
+  void setupWebView();
   Future<bool> onWillPop();
 }
 
@@ -24,7 +24,7 @@ class _WebViewComponentViewControllerState extends State<WebViewComponentViewCon
   void initState() {
     super.initState();
     viewModel = ServiceLocator.get<WebViewComponentProtocol>(param: widget.webViewUrl);
-    viewModel.prepareWebView();
+    viewModel.setupWebView();
   }
 
   @override

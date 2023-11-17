@@ -28,7 +28,7 @@ class WebViewComponentView extends StatelessWidget {
 
   Widget _getWebViewWidget(BuildContext context, Widget? child) {
     //TODO implemente seu widget de loading
-    if (viewModel.isWebViewLoading) return Container();
+    if (viewModel.isWebViewLoading) return Center(child: CircularProgressIndicator());
     return WebViewWidget(controller: viewModel.webViewController);
   }
 }

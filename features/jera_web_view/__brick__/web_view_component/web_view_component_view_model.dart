@@ -16,7 +16,7 @@ class WebViewComponentViewModel extends WebViewComponentProtocol {
   bool get isWebViewLoading => _isWebViewLoading;
 
   @override
-  void prepareWebView() {
+  void setupWebView() {
     _createWebViewController();
   }
 
