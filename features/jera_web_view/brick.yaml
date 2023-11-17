@@ -2,7 +2,7 @@ name: jera_web_view
 description: A brick to create items.
 repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_web_view
 
-version: 0.0.2+3
+version: 0.0.3+4
 
 environment:
   mason: ">=0.1.0-dev.47 <0.1.0"
