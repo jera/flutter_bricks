@@ -1,0 +1,9 @@
+Device ID Device Name Device Platform
+d18278488ea0215645206feb614776789507b9f2  iPhone 7 Junio ios
+5f81ded236ffa41d0e64270732e00b9de9f48b4e  iPhone 8 Rose Jera
+02eb532f01b716db775663e084816220de341bc3  iPhone 8 Cinza Jera
+b3fe36b61ed47812eeca47cf85cd8db9229dd59e  iPhone X Mano ios
+aa9e06a7a7e70f7c8e09f2a9e5e894c8d0361cc4	iPod Jera 1
+393fc88f7d71d1803eea40ba314e8846c7cc27f8	iPod Jera 2
+00008030-000125541A47802E iPhone SE Preto Jera 1
+00008030-0008691E0210402E iPhone SE Preto Jera 2

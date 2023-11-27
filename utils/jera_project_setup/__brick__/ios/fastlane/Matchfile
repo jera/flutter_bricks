@@ -1,0 +1,4 @@
+readonly(true)
+storage_mode("git") # Storage com git, acesse https://docs.fastlane.tools/actions/match/#usage
+username("mobile@jera.com.br") # Email para acessar o Developer apple (Preferencia sempre mobile@jera.com.br)
+git_url("git@gitlab.com:jera-software/jera-ios-certificates.git") #URL (SSH) do repositorio de certificados
