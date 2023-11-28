@@ -16,24 +16,24 @@ class LoginModule extends AppModule {
     {{#has_apple}}
     ServiceLocator.registerFactory<LoginAppleUseCaseProtocol>(() {
       return LoginAppleUseCase(routes: ServiceLocator.get());
-    });{{/has_apple}}
+    });{{/has_apple}}{{#has_facebook}}
     
     ServiceLocator.registerFactory<LoginFacebookUseCaseProtocol>(() {
       return LoginFacebookUseCase(routes: ServiceLocator.get());
-    });
+    });{{/has_facebook}}{{#has_google}}
 
     ServiceLocator.registerFactory<LoginGoogleUseCaseProtocol>(() {
       return LoginGoogleUseCase(routes: ServiceLocator.get());
-    });
+    });{{/has_google}}
 
     ServiceLocator.registerFactory<LoginViewModelProtocol>(() {
       return LoginViewModel(
         loginUseCase: ServiceLocator.get(),
         sessionManager: ServiceLocator.get(),
-        socialLoginHelper: ServiceLocator.get(),
-        loginAppleUseCase: ServiceLocator.get(),
-        loginGoogleUseCase: ServiceLocator.get(),
-        loginFacebookUseCase: ServiceLocator.get(),
+        socialLoginHelper: ServiceLocator.get(),{{#has_apple}}
+        loginAppleUseCase: ServiceLocator.get(),{{/has_apple}}{{#has_google}}
+        loginGoogleUseCase: ServiceLocator.get(),{{/has_google}}{#has_facebook}
+        loginFacebookUseCase: ServiceLocator.get(),{{/has_facebook}}
       );
     });
   }

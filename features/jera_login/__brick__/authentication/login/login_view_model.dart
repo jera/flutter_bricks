@@ -18,18 +18,18 @@ class LoginViewModel extends LoginViewModelProtocol {
 
   final LoginUseCaseProtocol loginUseCase;
   final SessionManagerProtocol sessionManager;
-  final SocialLoginHelperProtocol socialLoginHelper;
-  final LoginAppleUseCaseProtocol loginAppleUseCase;
-  final LoginGoogleUseCaseProtocol loginGoogleUseCase;
-  final LoginFacebookUseCaseProtocol loginFacebookUseCase;
+  final SocialLoginHelperProtocol socialLoginHelper;{{#has_apple}}
+  final LoginAppleUseCaseProtocol loginAppleUseCase;{{/has_apple}}{{#has_google}}
+  final LoginGoogleUseCaseProtocol loginGoogleUseCase;{{/has_google}}{{#has_facebook}}
+  final LoginFacebookUseCaseProtocol loginFacebookUseCase;{{/has_facebook}}
 
   LoginViewModel({
     required this.loginUseCase,
     required this.sessionManager,
-    required this.socialLoginHelper,
-    required this.loginAppleUseCase,
-    required this.loginGoogleUseCase,
-    required this.loginFacebookUseCase,
+    required this.socialLoginHelper,{{#has_apple}}
+    required this.loginAppleUseCase,{{/has_apple}}{{#has_google}}
+    required this.loginGoogleUseCase,{{/has_google}}{{#has_facebook}}
+    required this.loginFacebookUseCase,{{/has_facebook}}
   });
 
   /// LoginProtocol
@@ -85,7 +85,7 @@ class LoginViewModel extends LoginViewModelProtocol {
       },
     );
   }
-
+  {{#has_apple}}
   @override
   void didTapLoginWithApple() {
     _setLoading(true);
@@ -100,7 +100,7 @@ class LoginViewModel extends LoginViewModelProtocol {
       },
       onSucceeded: _loginWithApple,
     );
-  }
+  }{{/has_apple}}{{#has_google}}
 
   @override
   void didTapLoginWithGoogle() {
@@ -116,7 +116,7 @@ class LoginViewModel extends LoginViewModelProtocol {
       },
       onSucceeded: _loginWithGoogle,
     );
-  }
+  }{{/has_google}}{{#has_facebook}}
 
   @override
   void didTapLoginWithFacebook() {
@@ -132,7 +132,7 @@ class LoginViewModel extends LoginViewModelProtocol {
       },
       onSucceeded: _loginWithFacebook,
     );
-  }
+  }{{/has_facebook}}{{#has_apple}}
 
   void _loginWithApple(UserRequestIOS session) {
     loginAppleUseCase.execute(
@@ -146,7 +146,7 @@ class LoginViewModel extends LoginViewModelProtocol {
         _setLoading(false);
       },
     );
-  }
+  }{{/has_apple}}{{#has_facebook}}
 
   void _loginWithFacebook(String token) {
     loginFacebookUseCase.execute(
@@ -160,7 +160,7 @@ class LoginViewModel extends LoginViewModelProtocol {
         _setLoading(false);
       },
     );
-  }
+  }{{/has_facebook}}{{#has_google}}
 
   void _loginWithGoogle(GoogleLoginRequest googleLogin) {
     loginGoogleUseCase.execute(
@@ -174,7 +174,7 @@ class LoginViewModel extends LoginViewModelProtocol {
         _setLoading(false);
       },
     );
-  }
+  }{{/has_google}}
 
   void _createSession(User user) {
     sessionManager.createSession(user).whenComplete(() {

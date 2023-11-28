@@ -13,9 +13,9 @@ abstract class LoginViewModelProtocol extends ChangeNotifier {
   void didTapLogin();
   void didTapShowPassword();
   void didTapGoToRegister();{{#has_apple}}
-  void didTapLoginWithApple();{{/has_apple}}
-  void didTapLoginWithGoogle();
-  void didTapLoginWithFacebook();
+  void didTapLoginWithApple();{{/has_apple}}{{#has_google}}
+  void didTapLoginWithGoogle();{{/has_google}}{{#has_facebook}}
+  void didTapLoginWithFacebook();{{/has_facebook}}
 
   VoidCallback? onSuccessLogin;
   VoidCallback? onCanceledLogin;
@@ -144,28 +144,29 @@ class _LoginViewState extends State<LoginView> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 28),
+                            const SizedBox(height: 28),{{#has_facebook}}
                             SocialIconButton(
                               label: 'Entrar com o facebook',
                               asset: const Icon(Icons.facebook),
                               onTap: viewModel.didTapLoginWithFacebook,
-                            ),
-                            const SizedBox(height: 16),
+                            ),{{/has_facebook}}
+                            const SizedBox(height: 16),{{#has_google}}
                             SocialIconButton(
                               label: 'Entrar com o google',
                               asset: const Icon(Icons.g_mobiledata_rounded),
                               onTap: viewModel.didTapLoginWithGoogle,
-                            ),
-                            const SizedBox(height: 16),
+                            ),{{/has_google}}
+                            const SizedBox(height: 16),{{#has_apple}}
                             SocialIconButton(
                               label: 'Entrar com a apple',
                               asset: const Icon(Icons.apple),
                               onTap: viewModel.didTapLoginWithApple,
-                            ),
+                            ),{{/has_apple}}
                             const Spacer(),
                           ],
                         );
-                      }),
+                      },
+                    ),
                 ),
               ),
             ],

@@ -15,22 +15,22 @@ abstract class UserRoutesProtocol {
     required UserRequest user,
     Success? success,
     Failure? failure,
-  });
-  void enterWithGoogle({
+  });{{#has_google}}
+  void loginGoogle({
     required GoogleLoginRequest googleRequest,
     Success? success,
     Failure? failure,
-  });
-  void enterWithApple({
+  });{{/has_google}}{{#has_apple}}
+  void loginApple({
     required UserRequestIOS session,
     required Success success,
     required Failure failure,
-  });
-  void enterWithFacebook({
+  });{{/has_apple}}{{#has_facebook}}
+  void loginFacebook({
     required String token,
     required Success success,
     required Failure failure,
-  });
+  });{{/has_facebook}}
 }
 
 class UserRoutes extends UserRoutesProtocol {
@@ -61,9 +61,9 @@ class UserRoutes extends UserRoutesProtocol {
 
     _provider.request(success: success, failure: failure, endpoint: endpoint);
   }
-
+  {{#has_google}}
   @override
-  void enterWithGoogle({required GoogleLoginRequest googleRequest, Success? success, Failure? failure}) {
+  void loginGoogle({required GoogleLoginRequest googleRequest, Success? success, Failure? failure}) {
     final endpoint = Endpoint(
       path: '/users/google_auth',
       method: 'POST',
@@ -71,10 +71,10 @@ class UserRoutes extends UserRoutesProtocol {
     );
 
     _provider.request(success: success, failure: failure, endpoint: endpoint);
-  }
+  }{{/has_google}}{{#has_apple}}
 
   @override
-  void enterWithApple({
+  void loginApple({
     required UserRequestIOS session,
     required Success success,
     required Failure failure,
@@ -86,10 +86,10 @@ class UserRoutes extends UserRoutesProtocol {
     );
 
     _provider.request(endpoint: endpoint, success: success, failure: failure);
-  }
+  }{{/has_apple}}{{#has_facebook}}
 
   @override
-  void enterWithFacebook({
+  void loginFacebook({
     required String token,
     required Success success,
     required Failure failure,
@@ -101,5 +101,5 @@ class UserRoutes extends UserRoutesProtocol {
     );
 
     _provider.request(endpoint: endpoint, success: success, failure: failure);
-  }
+  }{{/has_facebook}}
 }
