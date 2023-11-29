@@ -1,8 +1,8 @@
-# Brick Auth
+# Brick de Login com Rede Social
 
-Brick para toda a parte da funcionalidade de **Autenticação** que é verificar se o aplicativo que o usuário tem instalado é o app mais atualizado.
+Brick de fazer **Login** e **Login com as redes social Apple, Google e FaceBook**.
 
-O módulo pede alguns condicionais que refletem nos arquivos gerados e no layout que ja vem pré estabelecido sendo simples para nortear o seu desenvolvimento. <br>
+Este módulo pede alguns condicionais que refletem nos arquivos gerados e no layout que ja vem pré estabelecido sendo simples para nortear o seu desenvolvimento. <br>
 Para quando você aceita os condicionais de integração com rede social dessa forma:
 
 <img src="assets/with_social_example.png" />
@@ -26,6 +26,7 @@ O modulo não funciona por si só, ele precisa de algumas configurações e arqu
 - `APIProvider.dart`
 - `Endpoint.dart`
 - `MobileRouter.dart`
+- `login_module.dart`
 
 No caso das aplicações que utilizaram de serviços de integração com rede social será necessário executar todo o setup no painel do `firebase` e/ou serviços externos como `facebook developer` `apple developer` para o funcionamento adequado da funcionalidade, o módulo apenas gera a implementação desses recursos.
 

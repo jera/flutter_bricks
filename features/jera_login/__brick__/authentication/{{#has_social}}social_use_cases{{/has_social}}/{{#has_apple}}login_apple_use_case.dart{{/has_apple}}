@@ -16,7 +16,7 @@ class LoginAppleUseCase extends LoginAppleUseCaseProtocol {
 
   @override
   void execute({required UserRequestIOS session, required Success success, required Failure failure}) {
-    routes.enterWithApple(
+    routes.loginApple(
       session: session,
       success: (response) {
         try {

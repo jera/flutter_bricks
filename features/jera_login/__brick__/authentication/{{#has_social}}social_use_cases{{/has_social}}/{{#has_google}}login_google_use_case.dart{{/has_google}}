@@ -16,7 +16,7 @@ class LoginGoogleUseCase implements LoginGoogleUseCaseProtocol {
 
   @override
   void execute({required GoogleLoginRequest googleLoginRequest, Success? success, Failure? failure}) {
-    routes.enterWithGoogle(
+    routes.loginGoogle(
       googleRequest: googleLoginRequest,
       success: (response) {
         try {

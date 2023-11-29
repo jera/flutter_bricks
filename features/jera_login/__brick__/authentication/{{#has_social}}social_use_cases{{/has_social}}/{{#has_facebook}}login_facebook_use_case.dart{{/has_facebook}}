@@ -15,7 +15,7 @@ class LoginFacebookUseCase extends LoginFacebookUseCaseProtocol {
 
   @override
   void execute({required String token, required Success success, required Failure failure}) {
-    routes.enterWithFacebook(
+    routes.loginFacebook(
       token: token,
       success: (response) {
         try {

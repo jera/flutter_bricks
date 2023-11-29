@@ -29,10 +29,10 @@ class LoginModule extends AppModule {
     ServiceLocator.registerFactory<LoginViewModelProtocol>(() {
       return LoginViewModel(
         loginUseCase: ServiceLocator.get(),
-        sessionManager: ServiceLocator.get(),
-        socialLoginHelper: ServiceLocator.get(),{{#has_apple}}
+        sessionManager: ServiceLocator.get(),{{#has_social}}
+        socialLoginHelper: ServiceLocator.get(),{{/has_social}}{{#has_apple}}
         loginAppleUseCase: ServiceLocator.get(),{{/has_apple}}{{#has_google}}
-        loginGoogleUseCase: ServiceLocator.get(),{{/has_google}}{#has_facebook}
+        loginGoogleUseCase: ServiceLocator.get(),{{/has_google}}{{#has_facebook}}
         loginFacebookUseCase: ServiceLocator.get(),{{/has_facebook}}
       );
     });

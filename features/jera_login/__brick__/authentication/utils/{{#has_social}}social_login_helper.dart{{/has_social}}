@@ -1,42 +1,44 @@
-import 'dart:io';
-
-import 'dart:convert';
+{{#has_apple}}
 import 'dart:math';
+import 'dart:convert';
 import 'package:crypto/crypto.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import '../models/user_request_ios.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';{{/has_apple}}
+{{#has_google}}
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../models/google_login_request.dart';{{/has_google}}
+{{#has_facebook}}
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';{{/has_facebook}}
 
-import '../models/google_login_request.dart';
-import '../models/user_request_ios.dart';
 
 typedef VoidCallback = void Function();
-typedef StringCallback = void Function(String);
-typedef SessionCallback = void Function(UserRequestIOS);
-typedef GoogleSessionCallback = void Function(GoogleLoginRequest googleLoginRequest);
+typedef StringCallback = void Function(String);{{#has_apple}}
+typedef SessionCallback = void Function(UserRequestIOS);{{/has_apple}}{{#has_google}}
+typedef GoogleSessionCallback = void Function(GoogleLoginRequest googleLoginRequest);{{/has_google}}
 
-abstract class SocialLoginHelperProtocol { 
-  void enterWithFacebook({
+abstract class SocialLoginHelperProtocol { {{#has_facebook}}
+  void loginFacebook({
     required StringCallback? onFailed,
     required VoidCallback? onCanceled,
     required StringCallback? onSucceeded,
-  });
-  void enterWithGoogle({
+  });{{/has_facebook}}{{#has_google}}
+  void loginGoogle({
     StringCallback? onFailed,
     GoogleSessionCallback? onSucceeded,
     VoidCallback? onCanceled,
-  });
-  void enterWithApple({
+  });{{/has_google}}{{#has_apple}}
+  void loginApple({
     StringCallback? onFailed,
     SessionCallback? onSucceeded,
     VoidCallback? onCanceled,
-  });
+  });{{/has_apple}}
 }
 
-class SocialLoginHelper extends SocialLoginHelperProtocol { 
+class SocialLoginHelper extends SocialLoginHelperProtocol { {{#has_facebook}}
   @override
-  void enterWithFacebook({StringCallback? onFailed, VoidCallback? onCanceled, StringCallback? onSucceeded}) {
+  void loginFacebook({StringCallback? onFailed, VoidCallback? onCanceled, StringCallback? onSucceeded}) {
     FacebookAuth.instance.login(permissions: ['email', 'public_profile']).then((facebookUser) {
       switch (facebookUser.status) {
         case LoginStatus.cancelled:
@@ -49,10 +51,10 @@ class SocialLoginHelper extends SocialLoginHelperProtocol {
         default:
       }
     });
-  }
+  }{{/has_facebook}}{{#has_google}}
 
   @override
-  void enterWithGoogle({StringCallback? onFailed, GoogleSessionCallback? onSucceeded, VoidCallback? onCanceled}) {
+  void loginGoogle({StringCallback? onFailed, GoogleSessionCallback? onSucceeded, VoidCallback? onCanceled}) {
     GoogleSignIn().signIn().then((googleUser) {
       _handleGoogleUser(googleUser, onSucceeded, onCanceled);
     }).catchError((_) {
@@ -93,10 +95,10 @@ class SocialLoginHelper extends SocialLoginHelperProtocol {
 
   void _handleGoogleSignInError(StringCallback? onFailed) {
     onFailed?.call('Erro no google login');
-  } 
+  } {{/has_google}}{{#has_apple}}
 
   @override
-  void enterWithApple({StringCallback? onFailed, SessionCallback? onSucceeded, VoidCallback? onCanceled}) {
+  void loginApple({StringCallback? onFailed, SessionCallback? onSucceeded, VoidCallback? onCanceled}) {
     final rawNonce = _generateAppleNonce();
     final nonce = _generateAppleSha256(rawNonce);
     final scopes = [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName];
@@ -139,5 +141,5 @@ class SocialLoginHelper extends SocialLoginHelperProtocol {
     final digest = sha256.convert(bytes);
 
     return digest.toString();
-  } 
+  } {{/has_apple}}
 }

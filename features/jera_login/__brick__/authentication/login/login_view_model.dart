@@ -87,9 +87,9 @@ class LoginViewModel extends LoginViewModelProtocol {
   }
   {{#has_apple}}
   @override
-  void didTapLoginWithApple() {
+  void didTapLoginApple() {
     _setLoading(true);
-    socialLoginHelper.enterWithApple(
+    socialLoginHelper.loginApple(
       onFailed: (errorMessage) {
         onFailureLogin?.call(errorMessage);
         _setLoading(false);
@@ -98,14 +98,14 @@ class LoginViewModel extends LoginViewModelProtocol {
         onCanceledLogin?.call();
         _setLoading(false);
       },
-      onSucceeded: _loginWithApple,
+      onSucceeded: _loginApple,
     );
   }{{/has_apple}}{{#has_google}}
 
   @override
-  void didTapLoginWithGoogle() {
+  void didTapLoginGoogle() {
     _setLoading(true);
-    socialLoginHelper.enterWithGoogle(
+    socialLoginHelper.loginGoogle(
       onFailed: (errorMessage) {
         onFailureLogin?.call(errorMessage);
         _setLoading(false);
@@ -114,14 +114,14 @@ class LoginViewModel extends LoginViewModelProtocol {
         onCanceledLogin?.call();
         _setLoading(false);
       },
-      onSucceeded: _loginWithGoogle,
+      onSucceeded: _loginGoogle,
     );
   }{{/has_google}}{{#has_facebook}}
 
   @override
-  void didTapLoginWithFacebook() {
+  void didTapLoginFacebook() {
     _setLoading(true);
-    socialLoginHelper.enterWithFacebook(
+    socialLoginHelper.loginFacebook(
       onFailed: (errorMessage) {
         onFailureLogin?.call(errorMessage);
         _setLoading(false);
@@ -130,11 +130,11 @@ class LoginViewModel extends LoginViewModelProtocol {
         onCanceledLogin?.call();
         _setLoading(false);
       },
-      onSucceeded: _loginWithFacebook,
+      onSucceeded: _loginFacebook,
     );
   }{{/has_facebook}}{{#has_apple}}
 
-  void _loginWithApple(UserRequestIOS session) {
+  void _loginApple(UserRequestIOS session) {
     loginAppleUseCase.execute(
       session: session,
       success: (user) {
@@ -148,7 +148,7 @@ class LoginViewModel extends LoginViewModelProtocol {
     );
   }{{/has_apple}}{{#has_facebook}}
 
-  void _loginWithFacebook(String token) {
+  void _loginFacebook(String token) {
     loginFacebookUseCase.execute(
       token: token,
       success: (user) {
@@ -162,7 +162,7 @@ class LoginViewModel extends LoginViewModelProtocol {
     );
   }{{/has_facebook}}{{#has_google}}
 
-  void _loginWithGoogle(GoogleLoginRequest googleLogin) {
+  void _loginGoogle(GoogleLoginRequest googleLogin) {
     loginGoogleUseCase.execute(
       googleLoginRequest: googleLogin,
       success: (user) {
