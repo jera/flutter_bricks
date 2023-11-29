@@ -9,7 +9,11 @@ import '../social_use_cases/login_google_use_case.dart';{{/has_google}}
 
 class LoginModule extends AppModule {
   @override
-  void registerDependencies() {
+  void registerDependencies() {{{#has_social}}
+    ServiceLocator.registerFactory<SocialLoginHelperProtocol>(() {
+      return SocialLoginHelper();
+    });{{/has_social}}
+    
     ServiceLocator.registerFactory<LoginUseCaseProtocol>(() {
       return LoginUseCase(routes: ServiceLocator.get());
     });
