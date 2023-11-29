@@ -1,8 +1,8 @@
 import '../../../../../../../api/setup/api_provider.dart';
-import '../../../../../../../api/setup/endpoint.dart';
-import '../models/google_login_request.dart';
-import '../models/user_request.dart';
-import '../models/user_request_ios.dart';
+import '../../../../../../../api/setup/endpoint.dart';{{#has_google}}
+import '../models/google_login_request.dart';{{/has_google}}
+import '../models/user_request.dart';{{#has_apple}}
+import '../models/user_request_ios.dart';{{/has_apple}}
 
 abstract class UserRoutesProtocol {
   void login({

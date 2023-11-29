@@ -1,13 +1,13 @@
-import '../models/google_login_request.dart';
 import '../models/user.dart';
-import '../models/user_request_ios.dart';
-import '../social_use_cases/login_apple_use_case.dart';
-import '../social_use_cases/login_facebook_use_case.dart';
-import '../social_use_cases/login_google_use_case.dart';
 import '../utils/session_manager.dart';
-import '../utils/social_login_helper.dart';
 import 'login_view.dart';
-import 'use_cases/login_use_case.dart';
+import 'use_cases/login_use_case.dart';{{#has_apple}}
+import '../models/user_request_ios.dart';
+import '../social_use_cases/login_apple_use_case.dart';{{/has_apple}}{{#has_facebook}}
+import '../social_use_cases/login_facebook_use_case.dart';{{/has_facebook}}{{#has_google}}
+import '../models/google_login_request.dart';
+import '../social_use_cases/login_google_use_case.dart';{{/has_google}}{{#has_social}}
+import '../utils/social_login_helper.dart';{{/has_social}}
 
 class LoginViewModel extends LoginViewModelProtocol {
   /// Private properties
@@ -17,16 +17,16 @@ class LoginViewModel extends LoginViewModelProtocol {
   bool _isObscurePassword = false;
 
   final LoginUseCaseProtocol loginUseCase;
-  final SessionManagerProtocol sessionManager;
-  final SocialLoginHelperProtocol socialLoginHelper;{{#has_apple}}
+  final SessionManagerProtocol sessionManager;{{#has_social}}
+  final SocialLoginHelperProtocol socialLoginHelper;{{/has_social}}{{#has_apple}}
   final LoginAppleUseCaseProtocol loginAppleUseCase;{{/has_apple}}{{#has_google}}
   final LoginGoogleUseCaseProtocol loginGoogleUseCase;{{/has_google}}{{#has_facebook}}
   final LoginFacebookUseCaseProtocol loginFacebookUseCase;{{/has_facebook}}
 
   LoginViewModel({
     required this.loginUseCase,
-    required this.sessionManager,
-    required this.socialLoginHelper,{{#has_apple}}
+    required this.sessionManager,{{#has_social}}
+    required this.socialLoginHelper,{{/has_social}}{{#has_apple}}
     required this.loginAppleUseCase,{{/has_apple}}{{#has_google}}
     required this.loginGoogleUseCase,{{/has_google}}{{#has_facebook}}
     required this.loginFacebookUseCase,{{/has_facebook}}

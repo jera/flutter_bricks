@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../support/utils/service_locator/service_locator.dart';
-import '../components/default_text_field.dart';
-import '../components/social_icon_button.dart';
+import '../components/default_text_field.dart';{{#has_social}}
+import '../components/social_icon_button.dart';{{/has_social}}
 
 abstract class LoginViewModelProtocol extends ChangeNotifier {
   bool get isLoading;
@@ -13,9 +13,9 @@ abstract class LoginViewModelProtocol extends ChangeNotifier {
   void didTapLogin();
   void didTapShowPassword();
   void didTapGoToRegister();{{#has_apple}}
-  void didTapLoginWithApple();{{/has_apple}}{{#has_google}}
-  void didTapLoginWithGoogle();{{/has_google}}{{#has_facebook}}
-  void didTapLoginWithFacebook();{{/has_facebook}}
+  void didTapLoginApple();{{/has_apple}}{{#has_google}}
+  void didTapLoginGoogle();{{/has_google}}{{#has_facebook}}
+  void didTapLoginFacebook();{{/has_facebook}}
 
   VoidCallback? onSuccessLogin;
   VoidCallback? onCanceledLogin;
@@ -148,19 +148,19 @@ class _LoginViewState extends State<LoginView> {
                             SocialIconButton(
                               label: 'Entrar com o facebook',
                               asset: const Icon(Icons.facebook),
-                              onTap: viewModel.didTapLoginWithFacebook,
+                              onTap: viewModel.didTapLoginFacebook,
                             ),{{/has_facebook}}
                             const SizedBox(height: 16),{{#has_google}}
                             SocialIconButton(
                               label: 'Entrar com o google',
                               asset: const Icon(Icons.g_mobiledata_rounded),
-                              onTap: viewModel.didTapLoginWithGoogle,
+                              onTap: viewModel.didTapLoginGoogle,
                             ),{{/has_google}}
                             const SizedBox(height: 16),{{#has_apple}}
                             SocialIconButton(
                               label: 'Entrar com a apple',
                               asset: const Icon(Icons.apple),
-                              onTap: viewModel.didTapLoginWithApple,
+                              onTap: viewModel.didTapLoginApple,
                             ),{{/has_apple}}
                             const Spacer(),
                           ],
