@@ -1,7 +1,6 @@
 import '../../../../../../../api/setup/api_provider.dart';
 import '../../../../../../../api/setup/endpoint.dart';{{#has_google}}
-import '../models/google_login_request.dart';{{/has_google}}
-import '../models/user_request.dart';{{#has_apple}}
+import '../models/google_login_request.dart';{{/has_google}}{{#has_apple}}
 import '../models/user_request_ios.dart';{{/has_apple}}
 
 abstract class UserRoutesProtocol {
@@ -10,8 +9,7 @@ abstract class UserRoutesProtocol {
     required String password,
     required Success success,
     required Failure failure,
-  });
-  {{#has_google}}
+  });{{#has_google}}
   void loginGoogle({
     required GoogleLoginRequest googleRequest,
     Success? success,
