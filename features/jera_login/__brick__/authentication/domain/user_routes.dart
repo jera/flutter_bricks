@@ -11,11 +11,7 @@ abstract class UserRoutesProtocol {
     required Success success,
     required Failure failure,
   });
-  void register({
-    required UserRequest user,
-    Success? success,
-    Failure? failure,
-  });{{#has_google}}
+  {{#has_google}}
   void loginGoogle({
     required GoogleLoginRequest googleRequest,
     Success? success,
@@ -55,12 +51,6 @@ class UserRoutes extends UserRoutesProtocol {
     _provider.request(endpoint: endpoint, success: success, failure: failure);
   }
 
-  @override
-  void register({required UserRequest user, Success? success, Failure? failure}) {
-    final endpoint = Endpoint(path: '/users', method: 'POST', data: user.toMap());
-
-    _provider.request(success: success, failure: failure, endpoint: endpoint);
-  }
   {{#has_google}}
   @override
   void loginGoogle({required GoogleLoginRequest googleRequest, Success? success, Failure? failure}) {
