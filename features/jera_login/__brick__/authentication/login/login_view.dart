@@ -95,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                                     value: viewModel.isObscurePassword,
                                     checkColor: Colors.white,
                                     side: const BorderSide(color: Colors.green),
-                                    fillColor: const MaterialStatePropertyAll(Colors.green),
+                                    activeColor: Colors.green,
                                     onChanged: (_) => viewModel.didTapShowPassword(),
                                   ),
                                 ),
