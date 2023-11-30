@@ -1,7 +1,8 @@
 import '../../../support/utils/service_locator/app_module.dart';
 import '../../../support/utils/service_locator/service_locator.dart';
 import '../login/login_view.dart';
-import '../login/login_view_model.dart';
+import '../login/login_view_model.dart';{{#has_social}}
+import '../utils/social_login_helper.dart';{{/has_social}}
 import '../login/use_cases/login_use_case.dart';{{#has_apple}}
 import '../social_use_cases/login_apple_use_case.dart';{{/has_apple}}{{#has_facebook}}
 import '../social_use_cases/login_facebook_use_case.dart';{{/has_facebook}}{{#has_google}}
@@ -9,7 +10,7 @@ import '../social_use_cases/login_google_use_case.dart';{{/has_google}}
 
 class LoginModule extends AppModule {
   @override
-  void registerDependencies() {{{#has_social}}
+  void registerDependencies() { {{#has_social}}
     ServiceLocator.registerFactory<SocialLoginHelperProtocol>(() {
       return SocialLoginHelper();
     });{{/has_social}}
