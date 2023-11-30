@@ -54,20 +54,70 @@ Então quando você for adicionar o login dentro do seu projeto e tentar navegar
 
 Segue o código que deve ser adicionado ao `MobileRouter`:
 
-### Adicione o force update as suas rotas
+### Adicione o login as suas rotas em seu router
+```dart
+class RoutesModule extends AppModule {
+  @override
+  void registerDependencies() {
+    ServiceLocator.registerLazySingleton<UserRoutesProtocol>(UserRoutes.new);
+  }
+}
+```
 
 ```dart
-static final Map<String, WidgetBuilder> routes = {
-  ...
-  /// Login
-  AuthFactory.loginRoute: (_) => AuthFactory.login(),
-}
+static final GoRouter router = GoRouter(
+    navigatorKey: rootNavigatorKey,
+    initialLocation: loginRoute,
+    routes: <RouteBase>[
+      GoRoute(
+        path: loginRoute,
+        name: loginRoute,
+        builder: (_, __) => const LoginView(),
+      ),
+    ],
+  );
 ```
 
 ## A sua parte na brick
 
 Esse módulo de Auth é uma base para a sua funcionalidade para otimizar o seu tempo. Porém precisará que você preencha algumas informações que será muito especifica do seu contexto. Então dentro do código estão alguns `TODO`s que você precisa resolvê-los.
 
+### É necessário adicionar a sua classe UserRoutes dentro do seu arquivo de registro de rotas com o ServiceLocator. Segue um exemplo de código:
+
+```dart
+class RoutesModule extends AppModule {
+  @override
+  void registerDependencies() {
+    ServiceLocator.registerLazySingleton<UserRoutesProtocol>(UserRoutes.new);
+  }
+}
+```
+
+### Também será preciso registrar a sua classe de SessionManager, geralmente fazemos isso em uma classe chamada "CommonsModule" onde registra-se os Singletons e LazySingletons, segue um trecho de código:
+
+```dart
+class CommonsModule extends AppModule {
+  @override
+  void registerDependencies() {
+    ///Lazy Singletons
+    ServiceLocator.registerLazySingleton<SessionManagerProtocol>(SessionManager.new);
+  }
+}
+```
+
+### Lembre-se de inicializar o seu módulo dentro da sua classe do ServiceLocator:
+```dart
+void initializeDependencies() {
+  final appModules = <AppModule>[
+    LoginModule(),
+    RoutesModule(),
+  ];
+
+  for (final module in appModules) {
+    module.registerDependencies();
+  }
+}
+```
 ## Como usar?
 
 Após resolver todos os TODO's e adicionar todos os códigos que precisa, é só você estilizar suas telas de acordo com a necessidade e estará pronto para o uso.
