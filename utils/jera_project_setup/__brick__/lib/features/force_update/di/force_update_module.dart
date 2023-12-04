@@ -1,3 +1,4 @@
+import '../../../support/utils/helpers/force_update.dart';
 import '../../../support/utils/service_locator/app_module.dart';
 import '../../../support/utils/service_locator/service_locator.dart';
 
