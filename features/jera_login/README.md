@@ -32,16 +32,16 @@ No caso das aplicações que utilizaram de serviços de integração com rede so
 
 ## Como instalar e gerar os arquivos
 
-Para utilizar da brick adicione ela ao seu `mason.yaml` com o nome `jera_auth`.
+Para utilizar da brick adicione ela ao seu `mason.yaml` com o nome `jera_login`.
 
 ```bash
-$ mason add jera_auth
+$ mason add jera_login
 ```
 
 Logo após adicionar rode o comando para gerar os arquivos dentro de seu projeto:
 
 ```bash
-$ mason make jera_auth -o lib/features
+$ mason make jera_login -o lib/features
 ```
 
 **_Note que o que vem depois do `-o` é o path no qual você gostaria de adicionar essa funcionalidade._**
@@ -56,11 +56,9 @@ Segue o código que deve ser adicionado ao `MobileRouter`:
 
 ### Adicione o login as suas rotas em seu router
 ```dart
-class RoutesModule extends AppModule {
-  @override
-  void registerDependencies() {
-    ServiceLocator.registerLazySingleton<UserRoutesProtocol>(UserRoutes.new);
-  }
+@override
+void registerDependencies() {
+  ServiceLocator.registerLazySingleton<UserRoutesProtocol>(UserRoutes.new);
 }
 ```
 
