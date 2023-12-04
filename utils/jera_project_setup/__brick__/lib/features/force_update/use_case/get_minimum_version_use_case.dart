@@ -10,15 +10,15 @@ abstract class GetMinimumVersionUseCaseProtocol {
 }
 
 class GetMinimumVersionUseCase extends GetMinimumVersionUseCaseProtocol {
-  final ForceUpdateRoutesProtocol _routes;
+  final ForceUpdateRoutesProtocol route;
 
   // Constructor
-  GetMinimumVersionUseCase({ForceUpdateRoutesProtocol? routes}) : this._routes = routes ?? ForceUpdateRoutes();
+  GetMinimumVersionUseCase({required this.route});
 
   // GetMinimumVersionUseCaseProtocol
   @override
   void execute({required String platform, Success? success, Failure? failure}) {
-    _routes.getMinimumVersion(
+    route.getMinimumVersion(
       platform: platform,
       success: (response) {
         try {
