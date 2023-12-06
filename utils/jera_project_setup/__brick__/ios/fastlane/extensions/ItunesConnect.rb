@@ -16,7 +16,6 @@ platform :ios do
       app_name: config.name,
       team_name: config.team_name,
       itc_team_name: config.itc_team_name,
-      # company_name: config.team_name, # just need the company name if is the firt app created
       language: "pt-BR",
       app_version: "1.0"
     )    

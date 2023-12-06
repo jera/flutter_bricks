@@ -11,14 +11,14 @@ Contém as seguintes configurações:
  - Merge request template
  - Classes de estilo como o AppColors e o AppThemes
  - Uma tela inicial de exemplo
+ - Fastlane
 
 ## Como usar esta brick?
 
-1. Desative as opções web, mac, windows e linux caso o projeto seja apenas mobile usando:
+1. Desative as opções web, windows e linux caso o projeto seja apenas mobile usando:
 ```bash
 $ flutter config --no-enable-web
 $ flutter config --no-enable-linux-desktop
-$ flutter config --no-enable-macos-desktop
 $ flutter config --no-enable-windows-desktop
 ```
 
@@ -62,5 +62,5 @@ $ mason make jera_project_setup
 
 - No `pubspec.yaml` altere o `name` com o nome do seu projeto
 - Será necessário alterar as versões de suporte do iOS, para isso pesquise por `IPHONEOS_DEPLOYMENT_TARGET` dentro de `project.pbxproj` e altere o valor para a versão atual que damos suporte (14). Faça isso nos 3 lugares onde o `IPHONEOS_DEPLOYMENT_TARGET` for chamado
-- Configurar o Fastlane no iOS
+- Preencher o arquivo `Variables` e `Matchfile` para concluir a automação com o Fastlane no iOS
 - Alterar o nome e a logo do app
