@@ -11,28 +11,32 @@ import '../../../router/mobile_router.dart';
 /// caso não seja redireciona o app para a tela de atualização do app.
 ///
 /// ***Para utilizar corretamente esse modulo certifique-se todas as dependências necessárias estão no seu projeto.***
-class ForceUpdate {
-  static final ForceUpdate instance = ForceUpdate._();
+abstract class ForceUpdateProtocol {
+  void verifySession();
+}
 
+class ForceUpdate extends ForceUpdateProtocol {
   // Private properties
-  final GetAppInfoUseCaseProtocol _getAppInfoUseCase;
-  final GetMinimumVersionUseCaseProtocol _getMinimumVersionUseCase;
+  final GetAppInfoUseCaseProtocol getAppInfoUseCase;
+  final GetMinimumVersionUseCaseProtocol getMinimumVersionUseCase;
 
   // Constructor
-  ForceUpdate._()
-      : _getAppInfoUseCase = GetAppInfoUseCase(),
-        _getMinimumVersionUseCase = GetMinimumVersionUseCase();
+  ForceUpdate({
+    required this.getAppInfoUseCase,
+    required this.getMinimumVersionUseCase,
+  });
 
   // Public functions
+  @override
   void verifySession() {
-    _getAppInfoUseCase.execute(completion: (appInfo) {
+    getAppInfoUseCase.execute(completion: (appInfo) {
       _getServerMinimumVersionBy(appInfo);
     });
   }
 
   // Private functions
   void _getServerMinimumVersionBy(AppInfo appInfo) {
-    _getMinimumVersionUseCase.execute(
+    getMinimumVersionUseCase.execute(
       platform: appInfo.platform,
       success: (minimumVersion) {
         _checkAppVersionToForceUpdateIfNeeded(appInfo, minimumVersion);

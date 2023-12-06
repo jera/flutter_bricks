@@ -6,10 +6,7 @@ import '../../support/utils/service_locator/service_locator.dart';
 abstract class ForceUpdateViewModelProtocol {
   bool get showIgnoreButton;
   String get storeURL;
-  String get title;
   String get description;
-  String get updateActionTitle;
-  String get skipActionTitle;
 }
 
 class ForceUpdateView extends StatefulWidget {
@@ -50,7 +47,7 @@ class _ForceUpdateViewState extends State<ForceUpdateView> {
               ),
               const SizedBox(height: 24),
               Text(
-                viewModel.title,
+                'Existe uma atualização pendente',
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
@@ -71,7 +68,7 @@ class _ForceUpdateViewState extends State<ForceUpdateView> {
                   minimumSize: const Size.fromHeight(50),
                 ),
                 child: Text(
-                  viewModel.updateActionTitle,
+                  'Atualizar',
                   style: const TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
@@ -94,7 +91,7 @@ class _ForceUpdateViewState extends State<ForceUpdateView> {
           minimumSize: const Size.fromHeight(50),
         ),
         child: Text(
-          viewModel.skipActionTitle,
+          'Ignorar',
           style: const TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
