@@ -1,5 +1,4 @@
 import 'package:mason/mason.dart';
+import 'dart:io';
 
-void run(HookContext context) {
-  // TODO: add pre-generation logic.
-}
+void run(HookContext context) async {}
