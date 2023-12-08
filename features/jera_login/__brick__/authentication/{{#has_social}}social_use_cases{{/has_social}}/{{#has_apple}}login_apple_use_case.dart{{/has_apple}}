@@ -1,0 +1,34 @@
+import '../domain/user_routes.dart';
+import '../models/user.dart';
+import '../models/user_request_ios.dart';
+
+typedef Success = void Function(User session);
+typedef Failure = void Function(String error);
+
+abstract class LoginAppleUseCaseProtocol {
+  void execute({required UserRequestIOS session, required Success success, required Failure failure});
+}
+
+class LoginAppleUseCase extends LoginAppleUseCaseProtocol {
+  UserRoutesProtocol routes;
+
+  LoginAppleUseCase({required this.routes});
+
+  @override
+  void execute({required UserRequestIOS session, required Success success, required Failure failure}) {
+    routes.loginApple(
+      session: session,
+      success: (response) {
+        try {
+          final session = User.fromMap(response);
+          success(session);
+        } on Error catch (error) {
+          failure.call(error.toString());
+        }
+      },
+      failure: (error) {
+        failure(error.toString());
+      },
+    );
+  }
+}

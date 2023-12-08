@@ -1,0 +1,145 @@
+{{#has_apple}}
+import 'dart:math';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
+import '../models/user_request_ios.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';{{/has_apple}}
+{{#has_google}}
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import '../models/google_login_request.dart';{{/has_google}}
+{{#has_facebook}}
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';{{/has_facebook}}
+
+
+typedef VoidCallback = void Function();
+typedef StringCallback = void Function(String);{{#has_apple}}
+typedef SessionCallback = void Function(UserRequestIOS);{{/has_apple}}{{#has_google}}
+typedef GoogleSessionCallback = void Function(GoogleLoginRequest googleLoginRequest);{{/has_google}}
+
+abstract class SocialLoginHelperProtocol { {{#has_facebook}}
+  void loginFacebook({
+    required StringCallback? onFailed,
+    required VoidCallback? onCanceled,
+    required StringCallback? onSucceeded,
+  });{{/has_facebook}}{{#has_google}}
+  void loginGoogle({
+    StringCallback? onFailed,
+    GoogleSessionCallback? onSucceeded,
+    VoidCallback? onCanceled,
+  });{{/has_google}}{{#has_apple}}
+  void loginApple({
+    StringCallback? onFailed,
+    SessionCallback? onSucceeded,
+    VoidCallback? onCanceled,
+  });{{/has_apple}}
+}
+
+class SocialLoginHelper extends SocialLoginHelperProtocol { {{#has_facebook}}
+  @override
+  void loginFacebook({StringCallback? onFailed, VoidCallback? onCanceled, StringCallback? onSucceeded}) {
+    FacebookAuth.instance.login(permissions: ['email', 'public_profile']).then((facebookUser) {
+      switch (facebookUser.status) {
+        case LoginStatus.cancelled:
+          return onCanceled?.call();
+        case LoginStatus.failed:
+          return onFailed?.call('Erro no facebook login');
+        case LoginStatus.success:
+          final accessToken = facebookUser.accessToken?.token ?? '';
+          return onSucceeded?.call(accessToken);
+        default:
+      }
+    });
+  }{{/has_facebook}}{{#has_google}}
+
+  @override
+  void loginGoogle({StringCallback? onFailed, GoogleSessionCallback? onSucceeded, VoidCallback? onCanceled}) {
+    GoogleSignIn().signIn().then((googleUser) {
+      _handleGoogleUser(googleUser, onSucceeded, onCanceled);
+    }).catchError((_) {
+      _handleGoogleSignInError(onFailed);
+    });
+  }
+  void _handleGoogleUser(
+    GoogleSignInAccount? googleUser,
+    GoogleSessionCallback? onSucceeded,
+    VoidCallback? onCanceled,
+  ) {
+    if (googleUser == null) return onCanceled?.call();
+
+    googleUser.authentication.then((googleAuth) {
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.idToken,
+        idToken: googleAuth.idToken,
+      );
+
+      _handleGoogleCredential(credential, onSucceeded);
+    });
+  }
+
+  void _handleGoogleCredential(
+    OAuthCredential credential,
+    GoogleSessionCallback? onSucceeded,
+  ) {
+    FirebaseAuth.instance.signInWithCredential(credential).then((user) {
+      final accessToken = user.credential?.accessToken;
+      final googleLoginRequest = GoogleLoginRequest(
+        oauth2Token: accessToken ?? '',
+        platform: Platform.isAndroid ? 'web' : 'ios',
+      );
+
+      onSucceeded?.call(googleLoginRequest);
+    });
+  }
+
+  void _handleGoogleSignInError(StringCallback? onFailed) {
+    onFailed?.call('Erro no google login');
+  } {{/has_google}}{{#has_apple}}
+
+  @override
+  void loginApple({StringCallback? onFailed, SessionCallback? onSucceeded, VoidCallback? onCanceled}) {
+    final rawNonce = _generateAppleNonce();
+    final nonce = _generateAppleSha256(rawNonce);
+    final scopes = [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName];
+
+    SignInWithApple.getAppleIDCredential(
+      nonce: nonce,
+      scopes: scopes,
+    ).then(
+      (credential) => onSucceeded?.call(_getUserSession(credential)),
+      onError: (exception) => _onErrorAppleSignIn(exception.code, onCanceled, onFailed),
+    );
+  }
+
+  
+  UserRequestIOS _getUserSession(AuthorizationCredentialAppleID credential) {
+    return UserRequestIOS(
+      givenName: credential.givenName ?? '',
+      familyName: credential.familyName ?? '',
+      appleToken: credential.identityToken ?? '',
+    );
+  }
+
+  void _onErrorAppleSignIn(dynamic code, VoidCallback? onCanceled, StringCallback? onFailed) {
+    if (code == AuthorizationErrorCode.canceled) {
+      return onCanceled?.call();
+    }
+    return onFailed?.call('Erro no login com a apple');
+  }
+
+  static String _generateAppleNonce([int length = 32]) {
+    final random = Random.secure();
+    const charset = '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
+
+    return List.generate(length, (_) => charset[random.nextInt(charset.length)]).join();
+  }
+
+  /// Returns the sha256 hash of [input] in hex notation.
+  static String _generateAppleSha256(String input) {
+    final bytes = utf8.encode(input);
+    final digest = sha256.convert(bytes);
+
+    return digest.toString();
+  } {{/has_apple}}
+}
