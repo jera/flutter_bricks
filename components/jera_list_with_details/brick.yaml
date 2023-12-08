@@ -1,0 +1,9 @@
+name: jera_list_with_details
+description: A brick to create list with details.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_list_with_details
+version: 0.0.1+1
+
+environment:
+  mason: ">=0.1.0-dev.47 <0.1.0"
+
+  # Colocar variaveis para deixar o nome da feature, do componente e do item dinamico
