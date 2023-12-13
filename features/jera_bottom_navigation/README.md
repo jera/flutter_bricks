@@ -36,6 +36,7 @@ Segue o código que deve ser adicionado ao MobileRouter:
 
 
 ```dart
+  //TODO: Lembre-se de alterar as rotas caso precise, essas são as rotas padrões.
   static const String homeRoute = '/home';
   static const String profileRoute = '/profile';
   static const String settingsRoute = '/settings';
@@ -56,7 +57,7 @@ Segue o código que deve ser adicionado ao MobileRouter:
               GoRoute(
                 path: homeRoute,
                 name: homeRoute,
-                builder: (_, __) => const Home(),
+                builder: (_, __) => Container(), //TODO: Adicionar a tela desejada.
               ),
             ],
           ),
@@ -66,7 +67,7 @@ Segue o código que deve ser adicionado ao MobileRouter:
               GoRoute(
                 path: profileRoute,
                 name: profileRoute,
-                builder: (_, __) => const Profile(),
+                builder: (_, __) => Container(), //TODO: Adicionar a tela desejada.
               ),
             ],
           ),
@@ -76,7 +77,7 @@ Segue o código que deve ser adicionado ao MobileRouter:
               GoRoute(
                 path: settingsRoute,
                 name: settingsRoute,
-                builder: (_, __) => const SettingsView(),
+                builder: (_, __) => Container(), //TODO: Adicionar a tela desejada.
               ),
             ],
           ),
