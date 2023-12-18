@@ -21,7 +21,7 @@ class BottomNavigationView extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.blue,
             currentIndex: navigationShell.currentIndex,
-            onTap: (int index) => viewModel.didTapSelectedIndex(index),
+            onTap: viewModel.didTapSelectedIndex,
             showUnselectedLabels: true,
             selectedItemColor: Colors.white,
             items: const [
