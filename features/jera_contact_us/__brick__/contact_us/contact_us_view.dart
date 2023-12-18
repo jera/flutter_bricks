@@ -87,7 +87,7 @@ class ContactUsView extends StatelessWidget {
                       const Spacer(flex: 5),
                       const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: viewModel.sendMessage(),
+                        onPressed: viewModel.sendMessage,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           padding: const EdgeInsets.symmetric(vertical: 20),
