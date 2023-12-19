@@ -1,0 +1,17 @@
+name: jera_list_with_details
+description: A brick to create list with details.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_list_with_details
+version: 0.0.1+1
+
+environment:
+  mason: ">=0.1.0-dev.47 <0.1.0"
+
+vars:
+  has_sliver:
+    type: boolean
+    description: Decide se irá criar a lista com Sliver ou não
+    prompt: Utilizar SliverList para criar a feature de listagem?
+  name:
+    type: string
+    description: Atribui as pastas e nomes de classes o nome da feature
+    prompt: Qual o nome da sua feature?

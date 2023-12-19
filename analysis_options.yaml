@@ -2,3 +2,4 @@ analyzer:
   exclude:
     - features/**
     - utils/**
+    - components/**

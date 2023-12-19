@@ -55,8 +55,24 @@ Porém se ainda não estiver publicado você pode adicionar bricks locais clonan
 ```
 bricks:
   hello: 0.1.0+1
-  brick_name:
-    path: "flutter-mason-bricks\\brick_name"
+  $brick_name:
+    path: "flutter-mason-bricks\\$brick_name"
+```
+
+Depois rode o comando abaixo para que sua brick possa ser utilizada:
+```
+mason upgrade
+```
+
+Rode o comando abaixo para verificar se a brick está disponível no computador:
+```
+mason list
+```
+
+O retorno deve ser algo assim:
+```
+/$MASON.YAML/$PATH/
+└── $NOME_DA_BRICK 0.0.1+1 -> /$PATH/$DA/$BRICK/
 ```
 
 Com as bricks adicionadas para utilizar basta rodar o comando:
