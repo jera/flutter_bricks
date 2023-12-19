@@ -4,7 +4,7 @@ import '{{name.snakeCase()}}_view_controller.dart';
 
 class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}Protocol implements {{name.pascalCase()}}ItemDelegate {
   bool _isEmpty = false;
-  bool _idLoading = false;
+  bool _isLoading = false;
   
   // TODO: Essa é a lista que contém os dados que irá construir o seu componente
   final _data = [
@@ -38,7 +38,7 @@ class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}Protocol imple
 
   // TODO: implementar a lógica para controlar os feedbacks de loading e vazio
   @override
-  bool get isLoading => _idLoading;
+  bool get isLoading => _isLoading;
 
   @override
   bool get isEmpty => _isEmpty;
