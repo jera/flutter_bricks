@@ -1,6 +1,6 @@
 # Brick de Cadastro
 
-Brick de um cadastro generico que contem Nome, Email, Telefone celular, Documento(CPF), Senha e Confirmação de senha. Como no seguinte layout
+Brick de um cadastro genérico que contém Nome, Email, Telefone celular, Documento(CPF), Senha e Confirmação de senha. Como no seguinte layout
 
 <img src="assets/screen_register.png" height= "400"/>
 
@@ -22,7 +22,7 @@ Dessa forma o código será gerado dentro da pasta authentication do seu projeto
 
 # Dependências do módulo
 
-O modulo não funciona por si só, ele precisa de algumas configurações e arquivos que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
+O módulo não funciona por si só, ele precisa de algumas configurações e arquivos que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
 
 - `MobileRouter.dart`
 - `service_locator.dart`

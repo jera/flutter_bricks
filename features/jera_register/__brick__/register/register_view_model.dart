@@ -183,7 +183,7 @@ class RegisterViewModel extends RegisterViewModelProtocol {
 
   void _validateDocument() {
     if (_document.trim().isEmpty) _documentErrorText = 'Digite seu CPF';
-    if (!_document.isDocument()) _documentErrorText = 'Digite um CPF valido';
+    if (!_document.isDocument()) _documentErrorText = 'Digite um CPF válido';
   }
 
   void _validatePassword() {

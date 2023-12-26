@@ -4,7 +4,7 @@ import '../models/register_request.dart';
 
 abstract class RegisterRoutesProtocol {
   void register({
-    required RegisterRequest user,
+    required RegisterRequest registerRequest,
     Success? success,
     Failure? failure,
   });
@@ -14,7 +14,7 @@ class RegisterRoutes extends RegisterRoutesProtocol {
   final ApiProvider _provider = ApiProvider();
 
   @override
-  void register({required RegisterRequest user, Success? success, Failure? failure}) {
+  void register({required RegisterRequest registerRequest, Success? success, Failure? failure}) {
     final endpoint = Endpoint(path: '/users', method: 'POST', data: user.toMap());
 
     _provider.request(success: success, failure: failure, endpoint: endpoint);
