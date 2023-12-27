@@ -1,6 +1,6 @@
 name: jera_list_grid
 description: A brick to create list with grid.
-repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_list_grid
+repository: https://github.com/jera/flutter_bricks/tree/develop/components/jera_list_grid
 version: 0.0.1+1
 
 environment:
