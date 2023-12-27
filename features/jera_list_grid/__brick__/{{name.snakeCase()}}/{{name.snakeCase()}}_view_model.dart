@@ -2,7 +2,7 @@ import 'components/{{name.snakeCase()}}_item_view.dart';
 import 'components/{{name.snakeCase()}}_item_view_model.dart';
 import '{{name.snakeCase()}}_view.dart';
 
-class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}ViewModelProtocol implements {{name.pascalCase()}}Delegate {
+class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}ViewModelProtocol implements {{name.pascalCase()}}ItemDelegate {
   //This is the list used to construct the items
   final _frutas = [
     'Maçã',

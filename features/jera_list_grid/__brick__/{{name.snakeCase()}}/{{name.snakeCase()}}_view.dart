@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../../support/utils/service_locator/service_locator.dart';
-import 'component/{{name.snakeCase()}}_item_view.dart';
+import 'components/{{name.snakeCase()}}_item_view.dart';
 
-abstract class  {{name.pascalCase()}}ViewModelProtocol {
+abstract class {{name.pascalCase()}}ViewModelProtocol {
   List< {{name.pascalCase()}}ItemViewModelProtocol> get itemViewModels;
 }
 
-class  {{name.pascalCase()}}View extends StatefulWidget {
-  const  {{name.pascalCase()}}View({super.key});
+class {{name.pascalCase()}}View extends StatefulWidget {
+  const {{name.pascalCase()}}View({super.key});
 
   @override
-  State< {{name.pascalCase()}}View> createState() => _ {{name.pascalCase()}}ViewState();
+  State<{{name.pascalCase()}}View> createState() => _{{name.pascalCase()}}ViewState();
 }
 
-class _ {{name.pascalCase()}}ViewState extends State< {{name.pascalCase()}}View> {
-  final viewModel = ServiceLocator.get< {{name.pascalCase()}}ViewModelProtocol>();
+class _{{name.pascalCase()}}ViewState extends State<{{name.pascalCase()}}View> {
+  final viewModel = ServiceLocator.get<{{name.pascalCase()}}ViewModelProtocol>();
 
   @override
   Widget build(BuildContext context) {
