@@ -41,15 +41,7 @@ class CPFValidator {
       cpf = strip(cpf);
     }
 
-    if (cpf == null || cpf.isEmpty) {
-      return false;
-    }
-
-    if (cpf.length != 11) {
-      return false;
-    }
-
-    if (blockList.contains(cpf)) {
+    if ((cpf == null || cpf.isEmpty) || cpf.length != 11 || blockList.contains(cpf)) {
       return false;
     }
 
