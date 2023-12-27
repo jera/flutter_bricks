@@ -1,7 +1,7 @@
 name: jera_login
 description: Brick for create authentication with code for social login.
 repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_login
-version: 0.1.0+4
+version: 0.1.0+5
 
 environment:
   mason: ">=0.1.0-dev.48 <0.1.0"
