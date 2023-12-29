@@ -1,5 +1,5 @@
 name: jera_tab_layout
-description: A brick to create a template of tab layout feature.
+description: A brick to create a template of tab layout.
 repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_tab_layout
 
 version: 0.1.0+1

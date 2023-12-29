@@ -1,10 +1,10 @@
 # "Tab Layout" Brick
 
-Uma brick para criar uma feature de ``Tab Layout`` no seu projeto. Essa tela compreende uma AppBar, um menu de seleção (TabBar) e o conteúdo associado a cada item selecionado.
+Uma brick para criar um layout com ``Tab Layout`` no seu projeto. Essa tela compreende uma AppBar, um menu de seleção (TabBar) e o conteúdo associado a cada item selecionado.
 
 > Brick para criar uma feature de "Tab Layout",  com arquivos desenvolvidos no padrão atualmente adotado pela Jera.
 
-![Tab Layout Example Image](tab_layout_example.png)
+![Tab Layout Example Image](tab_layout_example.jpg)
 
 ## 🗺️ Guia de Instalação e Geração de Arquivos
 
