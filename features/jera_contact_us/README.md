@@ -4,6 +4,8 @@ Uma brick para criar uma feature de fale conosco no seu projeto. Esta tela apres
 
 > Brick para criar uma feature de "entre em contato",  com arquivos desenvolvidos no padrão atualmente adotado pela Jera.
 
+![Contact Us Brick Example](contact_us_brick_example.png)
+
 ## 🗺️ Guia de Instalação e Geração de Arquivos
 
 Para integrar a brick, adicione-a ao seu arquivo `mason.yaml` utilizando o nome `jera_contact_us`.
