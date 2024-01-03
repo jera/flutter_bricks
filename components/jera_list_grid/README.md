@@ -1,4 +1,6 @@
-# Jera List Grid brick.
+# Jera List Grid brick
+
+<img src="assets/grid_example.png" height="550"/>
 
 ## Brick para gerar a implementação de uma lista em formato de grid
 
@@ -21,11 +23,9 @@ $ mason make jera_list_grid -o lib/feature
 Note que o que vem depois do -o é o local que você deseja adicionar essa funcionalidade.
 Após isso os arquivos serão gerados e as dependencias instaladas.
 
-
 ## A sua parte na brick
-
 
 Você precisará registrar a feature no ServiceLocator
 
-Também será necessário registrar a feature no GoRouter!
+Também será necessário criar a navegação para essa a funcionalidade
 

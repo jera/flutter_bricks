@@ -4,7 +4,7 @@ import '../../support/utils/service_locator/service_locator.dart';
 import 'components/{{name.snakeCase()}}_item_view.dart';
 
 abstract class {{name.pascalCase()}}ViewModelProtocol {
-  List< {{name.pascalCase()}}ItemViewModelProtocol> get itemViewModels;
+  List<{{name.pascalCase()}}ItemViewModelProtocol> get itemViewModels;
 }
 
 class {{name.pascalCase()}}View extends StatefulWidget {

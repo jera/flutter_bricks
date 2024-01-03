@@ -3,8 +3,8 @@ import 'components/{{name.snakeCase()}}_item_view_model.dart';
 import '{{name.snakeCase()}}_view.dart';
 
 class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}ViewModelProtocol implements {{name.pascalCase()}}ItemDelegate {
-  //This is the list used to construct the items
-  final _frutas = [
+  //Essa é a lista usada para construir cada item da grid 
+  final _fruits = [
     'Maçã',
     'Banana',
     'Laranja',
@@ -34,13 +34,13 @@ class {{name.pascalCase()}}ViewModel extends {{name.pascalCase()}}ViewModelProto
 
   @override
   void didTapItem(String dataTitle) {
-    //do the button actions here
+    //TODO:Faça as ações do botão aqui
   }
 
   @override
   List<{{name.pascalCase()}}ItemViewModelProtocol> get itemViewModels {
-    return _frutas.map((fruta) {
-      return {{name.pascalCase()}}ItemViewModel(dataTitle: fruta, delegate: this);
+    return _fruits.map((fruit) {
+      return {{name.pascalCase()}}ItemViewModel(dataTitle: fruit, delegate: this);
     }).toList();
   }
 }
