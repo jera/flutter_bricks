@@ -1,5 +1,6 @@
 name: jera_register
 description: A new brick for help develop feature register.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_register
 
 version: 0.1.0+1
 
