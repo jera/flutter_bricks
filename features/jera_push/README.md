@@ -72,6 +72,6 @@ import FirebaseMessaging
 
 [Habilitar notificações remotas em background](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app#2980038)
 
-Caso tenha problemas em receber uma notificação em background no iOS, habilite o background mode para executar notificações remotas: [push em background](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
+Caso tenha problemas em receber uma notificação em background no iOS, habilite o background mode para executar notificações remotas e realizar buscas em segundo plano: [push em background](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
 
 Esse módulo apenas gera a implementação em si que pode ser alterada de acordo com a necessidade, caso o setup do firebase não for concluido não irá funcionar adequadamente. É de extrema importancia também resolver os `// Todo` da implementação para o funcionamento adequado, enviando o token do firebase messaging para a sua respectiva API.
