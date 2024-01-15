@@ -12,3 +12,7 @@ vars:
     type: boolean
     description: Decide se a mensagem terá payload de dados ou não
     prompt: Criar notificação com payload de dados?
+  has_redirect:
+    type: boolean
+    description: Decide se a mensagem terá redirecionamento ou não
+    prompt: Adicionar redirecionamento na mensagem?

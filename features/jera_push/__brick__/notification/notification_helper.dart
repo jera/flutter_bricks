@@ -20,7 +20,7 @@ class NotificationHelper extends NotificationHelperProtocol {
       notificationData.title,
       notificationData.subtitle,
       {{#has_payload}}
-      payload: notificationData.toMap(),
+      payload: notificationData.data.toMap(),
       {{/has_payload}}
       _getNotificationDetails(notificationData),
     );
