@@ -6,5 +6,9 @@ version: 0.1.0+3
 
 environment:
   mason: ">=0.1.0-dev.50 <0.1.0"
-# vars:
 
+vars:
+  has_payload:
+    type: boolean
+    description: Decide se a mensagem terá payload de dados ou não
+    prompt: Criar notificação com payload de dados?
