@@ -1,6 +1,6 @@
 # Database Provider Brick
 
-O módulo vem com uma pasta de setup onde é feita a configuração do banco de dados, e uma pasta table onde você pode deixar suas tabelas. <br>
+O módulo vem com uma pasta de setup onde é feita a configuração do banco de dados e uma pasta table onde você pode deixar suas tabelas. <br>
 
 ## Como instalar e gerar os arquivos
 

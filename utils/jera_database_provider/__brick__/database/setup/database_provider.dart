@@ -13,7 +13,7 @@ class DatabaseProvider {
   bool _isInitialized = false;
 
   //TODO adicione suas tabelas aqui
-  List<Table> tables = [];
+  final tables = <Table>[];
 
   Database get db {
     if (!_isInitialized) {
@@ -32,7 +32,7 @@ class DatabaseProvider {
     _db = await openDatabase(
       path,
       version: 1,
-      onCreate: (Database db, int _) async {
+      onCreate: (db, _) async {
         final batch = db.batch();
 
         for (final table in tables) {
@@ -47,6 +47,9 @@ class DatabaseProvider {
   }
 
   Future<void> clearTables() async {
+    if (!_isInitialized) {
+      return throw Exception('Database not initialized');
+    }
     final tables = await _db.rawQuery('''
           SELECT name FROM sqlite_master
               WHERE type = ?''', ['table']);
