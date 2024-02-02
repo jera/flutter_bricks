@@ -30,6 +30,7 @@ class RecoverPasswordView extends StatelessWidget {
           builder: (_, __) {
             return GestureDetector(
               onTap: viewModel.removeFocus,
+              // TODO: Fazer uma view sem o uso de sliver
               child: CustomScrollView(
                 slivers: [
                   SliverFillRemaining(
