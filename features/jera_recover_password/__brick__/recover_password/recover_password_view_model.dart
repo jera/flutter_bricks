@@ -18,16 +18,6 @@ class RecoverPasswordViewModel extends RecoverPasswordProtocol {
   @override
   bool get canSubmit => _email.isNotEmpty;
 
-  // TODO: Verificar necessidade do validator
-  // @override
-  // String? emailValidator(String? email) {
-  //   if (email?.isEmpty ?? true) return 'Email';
-
-  //   if (!RegExp('[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}').hasMatch(_email ?? '')) return 'Email inválido';
-
-  //   return null;
-  // }
-
   /// Public Methods
 
   @override
@@ -43,6 +33,7 @@ class RecoverPasswordViewModel extends RecoverPasswordProtocol {
 
   @override
   void didTapRecoverPassword() {
+    onRemoveFocus?.call();
     recoverPasswordUseCase.execute(
       success: () {
         onSuccessRecoverPassword?.call();
@@ -52,6 +43,11 @@ class RecoverPasswordViewModel extends RecoverPasswordProtocol {
       },
       onComplete: () => _setLoading(false),
     );
+  }
+
+  @override
+  void removeFocus() {
+    onRemoveFocus?.call();
   }
 
   /// Private Methods

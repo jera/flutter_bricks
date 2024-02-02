@@ -1,5 +1,6 @@
 abstract class RecoverPasswordProtocol extends RecoverPasswordViewModelProtocol {
   VoidCallback? onTapBack;
+  VoidCallback? onRemoveFocus;
   VoidCallback? onSuccessRecoverPassword;
   ValueChanged<String>? onFailureRecoverPassword;
 }
@@ -28,17 +29,18 @@ class _RecoverPasswordViewControllerState extends State<RecoverPasswordViewContr
   void _bind() {
     viewModel.onTapBack = () {
       // TODO: Implementar callback
-      print('didTapBack');
+    };
+
+    viewModel.onRemoveFocus = () {
+      FocusScope.of(context).unfocus();
     };
 
     viewModel.onSuccessRecoverPassword = () {
       // TODO: Implementar callback
-      print('onSuccessRecoverPassword');
     };
 
     viewModel.onFailureRecoverPassword = (errorMessage) {
       // TODO: Implementar callback
-      print('onFailureRecoverPassword');
     };
   }
 }
