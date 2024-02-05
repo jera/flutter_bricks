@@ -30,7 +30,6 @@ class RecoverPasswordView extends StatelessWidget {
           builder: (_, __) {
             return GestureDetector(
               onTap: viewModel.removeFocus,
-              // TODO: Fazer uma view sem o uso de sliver
               child: CustomScrollView(
                 slivers: [
                   SliverFillRemaining(
@@ -78,7 +77,6 @@ class RecoverPasswordView extends StatelessWidget {
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.grey),
                               ),
-                              // errorText: errorText,
                             ),
                           ),
                           const SizedBox(height: 56),
