@@ -5,9 +5,3 @@ version: 0.1.0+1
 
 environment:
   mason: ">=0.1.0-dev.52 <0.1.0"
-
-vars:
-  uses_sliver:
-    type: boolean
-    description: Decide se irá usar Sliver ou não.
-    prompt: Você está utilizando Sliver no projeto?
