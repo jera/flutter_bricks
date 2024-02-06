@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+import 'recover_password_view.dart';
+
 abstract class RecoverPasswordProtocol extends RecoverPasswordViewModelProtocol {
   VoidCallback? onTapBack;
   VoidCallback? onRemoveFocus;

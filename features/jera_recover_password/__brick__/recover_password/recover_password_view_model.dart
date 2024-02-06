@@ -1,3 +1,6 @@
+import 'recover_password_view_controller.dart';
+import 'use_cases/recover_password_use_case.dart';
+
 class RecoverPasswordViewModel extends RecoverPasswordProtocol {
   /// Private Variables
 

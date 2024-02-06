@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 abstract class RecoverPasswordViewModelProtocol with ChangeNotifier {
   bool get canSubmit;
   bool get isLoading;
