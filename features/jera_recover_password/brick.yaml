@@ -1,5 +1,5 @@
 name: jera_recover_password
-description: Brick para recuperar senha.
+description: Brick de template da funcionalidade de recuperar senha.
 repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_recover_password
 version: 0.1.0+1
 
