@@ -1,5 +1,7 @@
 # jera_media_picker
 
+<img src="assets/example-1.png" height="550"/>
+<img src="assets/example-2.png" height="550"/>
 
 ## Brick para gerar a implementação do Media Picker
 
