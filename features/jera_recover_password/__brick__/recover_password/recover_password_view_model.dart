@@ -19,7 +19,7 @@ class RecoverPasswordViewModel extends RecoverPasswordProtocol {
   bool get isLoading => _isLoading;
 
   @override
-  bool get canSubmit => _email.isNotEmpty;
+  bool get canSubmit => _email.isNotEmpty; // TODO: Validar o campo se necessário
 
   /// Public Methods
 

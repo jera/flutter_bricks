@@ -18,7 +18,7 @@ class UserRoutes extends UserRoutesProtocol {
     VoidCallback? onComplete,
   }) {
     final endpoint = Endpoint(
-      path: '/users/recover_password',
+      path: '/users/recover_password', // TODO: Alterar se necessário
       method: 'POST',
       data: {'email': email},
     );
