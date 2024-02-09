@@ -25,7 +25,7 @@ Após isso os arquivos serão gerados e as dependencias instaladas.
 
 ## Dependencias do modulo
 
-Ao criar os arquivos da implementação será necessário fazer oq está na doc [image_picker](https://pub.dev/packages/image_picker) para utilização correta da package no android e iOS.<br>
+Ao criar os arquivos da implementação será necessário fazer o que está na documentação [image_picker](https://pub.dev/packages/image_picker) para utilização correta da package no android e iOS.<br>
 
 
 ## A sua parte na brick

@@ -9,4 +9,4 @@ vars:
   has_component:
     type: boolean
     description: Decide se irá ter o componente ou não.
-    prompt: Deseja adicionar o design padrão media picker?
+    prompt: Deseja adicionar os componentes padrão media picker?
