@@ -75,3 +75,17 @@ import FirebaseMessaging
 Caso tenha problemas em receber uma notificação em background no iOS, habilite o background mode para executar notificações remotas e realizar buscas em segundo plano: [push em background](https://developer.apple.com/documentation/xcode/configuring-background-execution-modes)
 
 Esse módulo apenas gera a implementação em si que pode ser alterada de acordo com a necessidade, caso o setup do firebase não for concluido não irá funcionar adequadamente. É de extrema importancia também resolver os `// Todo` da implementação para o funcionamento adequado, enviando o token do firebase messaging para a sua respectiva API.
+
+## Versionamento
+
+Essa seção contém as mudanças que foram ocorrendo ao longo do desenvolvimento da brick
+
+### Atualização: 14/02/2024
+
+#### Notification Data
+
+Foi adicionado o modelo NotificationData para armazenar todas as informações voltadas aos dados de uma notificação e facilitar o seu mapeamento.
+
+#### Mobile Router
+
+Foi adicionado o Mobile Router para lidar com o redirecionamento da aplicação a partir de uma notificação, caso seja necessária de outra maneira na sua aplicação, remova o Mobile Router e forneça ao `_clickHandler` uma nova forma de redirecionamento através de outra função.
