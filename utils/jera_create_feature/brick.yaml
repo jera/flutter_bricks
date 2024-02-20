@@ -2,7 +2,7 @@ name: jera_create_feature
 description: A brick for create features.
 repository: https://github.com/jera/flutter_bricks/tree/develop/utils/jera_create_feature
 
-version: 0.2.2+6
+version: 0.3.0+7
 
 environment:
   mason: ">=0.1.0-dev.47 <0.1.0"
