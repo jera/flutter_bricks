@@ -10,9 +10,13 @@ environment:
 vars:
   name:
     type: string
-    description: Feature name generate
+    description: Name of the feature
     prompt: Qual o nome da sua feature?
   has_factory:
     type: boolean
-    description: if true generate di
+    description: if true, generates di
     prompt: Deseja gerar o arquivo factory?
+  has_module:
+    type: boolean
+    description: if true, generates service locator module
+    prompt: Deseja gerar modulo de service locator?
