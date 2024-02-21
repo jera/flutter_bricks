@@ -1,0 +1,12 @@
+name: jera_media_picker
+description: A brick to do upload your media.
+version: 0.0.1+1
+repository: https://github.com/jera/flutter_bricks/tree/develop/components/jera_media_picker
+environment:
+  mason: ">=0.1.0-dev.52 <0.1.0"
+
+vars:
+  has_component:
+    type: boolean
+    description: Decide se irá ter o componente ou não.
+    prompt: Deseja adicionar os componentes padrão media picker?
