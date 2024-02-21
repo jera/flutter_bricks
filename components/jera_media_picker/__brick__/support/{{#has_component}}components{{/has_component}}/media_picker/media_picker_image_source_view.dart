@@ -4,8 +4,8 @@ class MediaPickerSelectImageSourceView extends StatelessWidget {
   final Color primaryColor;
   final Color secondColor;
 
-  final Function() onTapCamera;
-  final Function() onTapGallery;
+  VoidCallback onTapCamera;
+  VoidCallback onTapGallery;
 
   const MediaPickerSelectImageSourceView({
     required this.primaryColor,

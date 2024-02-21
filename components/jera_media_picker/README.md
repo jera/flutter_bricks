@@ -9,7 +9,7 @@ O módulo gera os 5 aquivos que é um `components/media_picker/` e outro é um `
 
 ## Como instalar e gerar os arquivos
 
-Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_remote_config.
+Para utilizar da brick adicione ela ao seu mason.yaml com o nome jera_media_picker.
 
 ```bash
 $ mason add jera_media_picker
