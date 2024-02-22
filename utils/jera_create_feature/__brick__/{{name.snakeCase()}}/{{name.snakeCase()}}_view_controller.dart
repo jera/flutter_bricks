@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:flutter/material.dart';
 import '{{name.snakeCase()}}_view.dart';
 
 abstract class {{name.pascalCase()}}Protocol extends {{name.pascalCase()}}ViewModelProtocol {}
