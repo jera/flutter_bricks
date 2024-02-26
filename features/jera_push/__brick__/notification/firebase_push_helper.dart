@@ -64,7 +64,7 @@ void _messageShowHandler(RemoteMessage message) {
 Future<void> _clickHandler(RemoteMessage message) async {
   final data = NotificationData.fromMap(message.data);
 
-  if(data.id == != '-1') {
+  if(data.id != '-1') {
     final id = data.id.toString();
 
     MobileRouter.redirectToInternalPage(id: id);
