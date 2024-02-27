@@ -13,14 +13,15 @@ class NotificationInfo {
     required this.title,
     required this.subtitle,
     required this.channelId,
-    required this.channelName,
-    required this.data,
+    required this.channelName, {{#has_payload}}
+    required this.data, {{/has_payload}}
   });
 
   NotificationInfo.fromFirebaseMessage({required RemoteMessage message})
       : title = message.notification?.title ?? '',
         subtitle = message.notification?.body ?? '',
-        channelId = '{{project_name.snakeCase()}}',
+        channelId = '{{project_name.snakeCase()}}', {{#has_payload}}
         channelName = 'notify-news',
-        data = NotificationData.fromMap(message.data);
+        data = NotificationData.fromMap(message.data); {{/has_payload}} {{^has_payload}}
+        channelName = 'notify-news'; {{/has_payload}}
 }
