@@ -35,7 +35,11 @@ pushNotificationHelper.initPushConfiguration();
 
 ## A sua parte na brick
 
-### Configuração iOS nativo -> AppDelegate.swift
+### Configuração iOS nativo
+
+#### AppDelegate.swift
+
+O arquivo `AppDelegate.swift` é voltado para lidar com eventos do ciclo de vida de uma aplicação no iOS. Esse arquivo é criado por padrão nas aplicações flutter que possuem suporte para dispositivos iOS. Com isso, atualizamos esse arquivo para que quando a nossa aplicação for inicializada em um dispositivo iOS, podemos realizar um setup específico para receber notificações no iOS. Dito isso, iremos fazer as alterações no arquivo seguindo os comentários abaixo:
 
 ```swift
 import UIKit
