@@ -76,3 +76,8 @@ Caso tenha problemas em receber uma notificação em background no iOS, habilite
 
 Esse módulo apenas gera a implementação em si que pode ser alterada de acordo com a necessidade, caso o setup do firebase não for concluido não irá funcionar adequadamente. É de extrema importancia também resolver os `// Todo` da implementação para o funcionamento adequado, enviando o token do firebase messaging para a sua respectiva API.
 
+### Configuração do código
+
+#### Mobile Router
+
+O redirecionamento da notificação foi feito utilizando o Mobile Router, onde definimos um navegação de redirecionamento para alguma parte da aplicação e utilizamos essa navegação no `_clickHandler` da notificação, caso seja necessária de outra maneira na sua aplicação, remova o Mobile Router e forneça ao `_clickHandler` uma nova forma de redirecionamento através de outra função.
