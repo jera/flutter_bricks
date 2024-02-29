@@ -19,6 +19,9 @@ class NotificationHelper extends NotificationHelperProtocol {
       Random().nextInt(100000),
       notificationData.title,
       notificationData.subtitle,
+      {{#has_payload}}
+      payload: notificationData.data.toMap(),
+      {{/has_payload}}
       _getNotificationDetails(notificationData),
     );
   }

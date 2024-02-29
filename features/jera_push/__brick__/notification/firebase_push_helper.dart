@@ -46,7 +46,9 @@ class FirebasePushHelper extends FirebasePushHelperHelperProtocol {
   }
 
   void _setupClickNotify() {
-    FirebaseMessaging.onMessageOpenedApp.listen((_) {});
+    {{#has_redirect}}
+    FirebaseMessaging.onMessageOpenedApp.listen(_clickHandler);
+    {{/has_redirect}}
   }
 }
 
@@ -56,3 +58,16 @@ void _messageShowHandler(RemoteMessage message) {
   final notificationInfo = NotificationInfo.fromFirebaseMessage(message: message);
   notificationHelper.showNotification(notificationInfo);
 }
+
+{{#has_redirect}}
+@pragma('vm:entry-point')
+Future<void> _clickHandler(RemoteMessage message) async {
+  final data = NotificationData.fromMap(message.data);
+
+  if(data.id != '-1') {
+    final id = data.id.toString();
+
+    MobileRouter.redirectToInternalPage(id: id);
+  }
+}
+{{/has_redirect}}
