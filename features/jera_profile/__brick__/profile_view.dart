@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../support/utils/service_locator/service_locator.dart';
 
 abstract class ProfileViewModelProtocol with ChangeNotifier {
   String get name;

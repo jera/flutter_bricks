@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../support/utils/service_locator/service_locator.dart';
+import '../../support/service_locator/service_locator.dart';
 import 'edit_profile_view.dart';
 
 abstract class EditProfileProtocol extends EditProfileViewModelProtocol {
@@ -27,7 +27,7 @@ class _EditProfileViewControllerState extends State<EditProfileViewController> {
 
   @override
   Widget build(BuildContext context) {
-    return const EditProfileView(viewModel: viewModel);
+    return EditProfileView(viewModel: viewModel);
   }
 
   void _bind() {

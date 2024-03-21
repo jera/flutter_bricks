@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../support/service_locator/service_locator.dart';
 import 'profile_view.dart';
 
 abstract class ProfileProtocol extends ProfileViewModelProtocol {
@@ -26,7 +27,7 @@ class _ProfileViewControllerState extends State<ProfileViewController> {
 
   @override
   Widget build(BuildContext context) {
-    return const ProfileView(viewModel: viewModel);
+    return ProfileView(viewModel: viewModel);
   }
 
   void _bind() {

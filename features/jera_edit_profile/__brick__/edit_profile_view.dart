@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../support/utils/service_locator/service_locator.dart';
-import 'edit_profile_view_controller.dart';
-
 abstract class EditProfileViewModelProtocol with ChangeNotifier {
   String get name;
   String get email;
