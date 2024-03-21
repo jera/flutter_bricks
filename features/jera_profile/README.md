@@ -2,7 +2,7 @@
 
 Esta é uma Brick projetada para acelerar a implementação da feature de **perfil** em seu projeto.
 
-<img width="250" src="assets/edit_profile_demo.png"/>
+<img width="250" src="assets/profile_demo.png"/>
 
 ## Como instalar e gerar os arquivos
 
