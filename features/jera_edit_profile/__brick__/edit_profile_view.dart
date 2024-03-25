@@ -35,7 +35,7 @@ class EditProfileView extends StatelessWidget {
       ),
       body: SafeArea(
         child: GestureDetector(
-          onTap: FocusScope.of(context).unfocus,
+          onTap: FocusManager.instance.primaryFocus.unfocus,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
             child: Column(
@@ -111,6 +111,7 @@ class EditProfileView extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
+                const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: viewModel.didTapSaveData,
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),

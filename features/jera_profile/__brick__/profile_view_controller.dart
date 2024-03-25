@@ -16,12 +16,11 @@ class ProfileViewController extends StatefulWidget {
 }
 
 class _ProfileViewControllerState extends State<ProfileViewController> {
-  late ProfileProtocol viewModel;
+  final viewModel = ServiceLocator.get<ProfileProtocol>();
 
   @override
   void initState() {
     super.initState();
-    viewModel = ServiceLocator.get<ProfileProtocol>();
     _bind();
   }
 

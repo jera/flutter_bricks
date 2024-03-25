@@ -16,12 +16,11 @@ class EditProfileViewController extends StatefulWidget {
 }
 
 class _EditProfileViewControllerState extends State<EditProfileViewController> {
-  late EditProfileProtocol viewModel;
+  final viewModel = ServiceLocator.get<EditProfileProtocol>();
 
   @override
   void initState() {
     super.initState();
-    viewModel = ServiceLocator.get<EditProfileProtocol>();
     _bind();
   }
 
