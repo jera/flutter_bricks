@@ -31,11 +31,11 @@ class _EditProfileViewControllerState extends State<EditProfileViewController> {
 
   void _bind() {
     viewModel.onTapGoBack = () {
-      /// TODO: implementar ontapgoback
+      /// TODO: implementar navegação para a tela anterior
     };
 
     viewModel.onTapSettings = () {
-      /// TODO: implementar ontapsettings
+      /// TODO: implementar navegação para outra tela
     };
   }
 }

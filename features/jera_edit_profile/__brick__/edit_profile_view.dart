@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 abstract class EditProfileViewModelProtocol with ChangeNotifier {
   String get name;
   String get email;
+  bool get canSubmit;
   String get avatarUrl;
+
+  String? nameValidator();
+  String? emailValidator();
 
   void didTapGoBack();
   void didTapSettings();
@@ -33,9 +37,9 @@ class EditProfileView extends StatelessWidget {
           ),
         ],
       ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: FocusManager.instance.primaryFocus.unfocus,
+      body: GestureDetector(
+        onTap: FocusManager.instance.primaryFocus?.unfocus,
+        child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
             child: Column(
@@ -43,11 +47,12 @@ class EditProfileView extends StatelessWidget {
               children: [
                 Center(
                   child: InkWell(
-                    borderRadius: BorderRadius.circular(50),
                     onTap: viewModel.didTapEditAvatar,
+                    borderRadius: BorderRadius.circular(50),
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
+                        /// Adicionar avatar
                         Container(
                           padding: const EdgeInsets.all(24),
                           decoration: const BoxDecoration(color: Colors.grey, shape: BoxShape.circle),
@@ -76,14 +81,25 @@ class EditProfileView extends StatelessWidget {
                 TextFormField(
                   initialValue: viewModel.name,
                   onChanged: viewModel.updateName,
+                  validator: (_) => viewModel.nameValidator(),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   decoration: InputDecoration(
+                    hintText: 'Nome...',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.grey),
                     ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.red),
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.green),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.red, width: 1.4),
                     ),
                     disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -95,10 +111,21 @@ class EditProfileView extends StatelessWidget {
                 TextFormField(
                   initialValue: viewModel.email,
                   onChanged: viewModel.updateEmail,
+                  validator: (_) => viewModel.emailValidator(),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   decoration: InputDecoration(
+                    hintText: 'Email...',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.grey),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.red, width: 1.4),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.red),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -112,13 +139,18 @@ class EditProfileView extends StatelessWidget {
                 ),
                 const Spacer(),
                 const SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: viewModel.didTapSaveData,
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                  child: const Text(
-                    'Salvar',
-                    style: TextStyle(fontSize: 13, color: Colors.white),
-                  ),
+                ListenableBuilder(
+                  listenable: viewModel,
+                  builder: (_, __) {
+                    return ElevatedButton(
+                      onPressed: viewModel.canSubmit ? viewModel.didTapSaveData : null,
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                      child: const Text(
+                        'Salvar',
+                        style: TextStyle(fontSize: 13, color: Colors.white),
+                      ),
+                    );
+                  },
                 ),
                 const Spacer(),
               ],
