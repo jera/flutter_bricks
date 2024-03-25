@@ -24,8 +24,6 @@ mason make jera_edit_profile -o lib/features
 
 Este módulo não opera de forma independente; ele requer algumas configurações e arquivos padrão que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
 
-- `endpoint.dart`
-- `api_provider.dart`
 - `service_locator.dart`
 
 No arquivo service_locator.dart, certifique-se de adicionar o EditProfileModule() como mostrado abaixo:

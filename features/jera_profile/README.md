@@ -24,17 +24,15 @@ mason make jera_profile -o lib/features
 
 Este módulo não opera de forma independente; ele requer algumas configurações e arquivos padrão que utilizamos em todos os nossos projetos na Jera. Esses arquivos são:
 
-- `endpoint.dart`
-- `api_provider.dart`
 - `service_locator.dart`
 
-No arquivo service_locator.dart, certifique-se de adicionar o EditProfileModule() como mostrado abaixo:
+No arquivo service_locator.dart, certifique-se de adicionar o ProfileModule() como mostrado abaixo:
 
 ```dart
 void initializeDependencies() {
   final appModules = <AppModule>[
     ...
-    EditProfileModule(),
+    ProfileModule(),
     ...
   ];
     ...
@@ -43,5 +41,5 @@ void initializeDependencies() {
 
 ## Personalização e Ajustes na Implementação da Brick
 
-Este módulo da funcionalidade de editar perfil oferece uma estrutura base para otimizar seu tempo. Contudo, é crucial realizar personalizações e ajustes na implementação para garantir que a funcionalidade atenda às necessidades específicas do seu projeto.
+Este módulo da funcionalidade de visualização do perfil oferece uma estrutura base para otimizar seu tempo. Contudo, é crucial realizar personalizações e ajustes na implementação para garantir que a funcionalidade atenda às necessidades específicas do seu projeto.
 
