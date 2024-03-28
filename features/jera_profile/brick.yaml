@@ -1,0 +1,7 @@
+name: jera_profile
+description: Brick de template da funcionalidade de visualização do perfil.
+repository: https://github.com/jera/flutter_bricks/tree/develop/features/jera_profile
+version: 0.1.2+3
+
+environment:
+  mason: ">=0.1.0-dev.52 <0.1.0"
