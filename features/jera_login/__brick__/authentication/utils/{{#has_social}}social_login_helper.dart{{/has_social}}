@@ -60,7 +60,7 @@ class SocialLoginHelper extends SocialLoginHelperProtocol { {{#has_google}}{{#ha
         case LoginStatus.failed:
           return onFailed?.call('Erro no facebook login');
         case LoginStatus.success:
-          final accessToken = facebookUser.accessToken?.token ?? '';
+          final accessToken = facebookUser.accessToken?.tokenString ?? '';
           return onSucceeded?.call(accessToken);
         default:
       }
