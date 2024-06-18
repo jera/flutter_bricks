@@ -35,8 +35,8 @@ abstract class SocialLoginHelperProtocol { {{#has_facebook}}
 }
 
 class SocialLoginHelper extends SocialLoginHelperProtocol { {{#has_google}}{{#has_facebook}}
-  @override
-  void clearSocialUser(){ 
+  
+  static void clearSocialUser(){ 
     GoogleSignIn().disconnect();
     FacebookAuth.instance.logOut();
   } {{/has_facebook}}{{/has_google}}{{#has_google}}{{^has_facebook}}
