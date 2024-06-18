@@ -34,15 +34,22 @@ abstract class SocialLoginHelperProtocol { {{#has_facebook}}
   });{{/has_apple}}
 }
 
-class SocialLoginHelper extends SocialLoginHelperProtocol { 
-  //TODO:Caso não tenha login com a Google ou com o Facebook excluir essa função
+class SocialLoginHelper extends SocialLoginHelperProtocol { {{#has_google}}{{#has_facebook}}
   @override
-  void clearSocialUser() { {{#has_google}}
-    GoogleSignIn().disconnect();{{/has_google}}{{#has_facebook}}
-    FacebookAuth.instance.logOut();{{/has_facebook}}
-  }
+  void clearSocialUser(){ 
+    GoogleSignIn().disconnect();
+    FacebookAuth.instance.logOut();
+  } {{/has_facebook}}{{/has_google}}{{#has_google}}{{^has_facebook}}
+  @override
+  void clearSocialUser(){ 
+    GoogleSignIn().disconnect();
+  } {{/has_facebook}}{{/has_google}}{{#has_facebook}}{{^has_google}}
+  @override
+  void clearSocialUser(){ 
+    FacebookAuth.instance.logOut();
+  } 
+  {{/has_google}}{{/has_facebook}}{{#has_facebook}}
 
-  {{#has_facebook}}
   @override
   void enterWithFacebook({StringCallback? onFailed, VoidCallback? onCanceled, StringCallback? onSucceeded}) {
     FacebookAuth.instance.login(permissions: ['email', 'public_profile']).then((facebookUser) {
