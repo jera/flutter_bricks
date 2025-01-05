@@ -5,7 +5,7 @@ repository: https://github.com/jera/flutter_bricks/tree/develop/utils/jera_proje
 version: 0.2.1+5
 
 environment:
-  mason: ">=0.1.0-dev.47 <0.1.0"
+  mason: 0.1.0
 
 vars:
   with_go_router:
